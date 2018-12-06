@@ -1,0 +1,60 @@
+<div class="wrapper">
+    <app-line-title
+        title="FRM fees and payments"
+        [type]="lineTitleTypes.frm"
+        gemColor="light-blue"
+        sizeType="s"
+    ></app-line-title>
+    
+    <div class="section-main">
+        <div class="row new">
+        <div class="col-sm-3 col-md-4">
+            <h2 class="common-title">
+            New <br/> candidate
+            </h2>
+            <h3 class="common-title-secondary">
+            FRM Exam Part I
+            </h3>
+        </div>
+        <div class="col-sm-9 col-md-8 common-left">
+          <div class="row">
+            <div class="col-sm-4 new-box">
+              <app-price-box
+                title="EARLY"
+                startDate="December 1, 2018"
+                endDate="January 31, 2019"
+                price="USD 750"
+                enrollmentFee="Enrollment fee USD 400"
+                examFee="Exam fee USD 350"
+                ></app-price-box>
+            </div>
+            <div class="col-sm-4 new-box">
+                <app-price-box
+                  title="STANDARD"
+                  startDate="February 1, 2019"
+                  endDate="February 28, 2019"
+                  price="USD 875"
+                  enrollmentFee="Enrollment fee USD 400"
+                  examFee="Exam fee USD 475"
+                  disabled="true"
+                  ></app-price-box>
+            </div>
+            <div class="col-sm-4 new-box">
+                <app-price-box
+                  title="LATE"
+                  startDate="March 1, 2019"
+                  endDate="April 15, 2019"
+                  price="USD 1050"
+                  enrollmentFee="Enrollment fee USD 400"
+                  examFee="Exam fee USD 650"
+                  disabled="true"
+                  ></app-price-box>
+            </div>
+
+          </div>
+              
+        </div>
+        </div>
+    </div>
+</div>
+      
