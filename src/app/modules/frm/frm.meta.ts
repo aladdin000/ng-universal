@@ -10,6 +10,11 @@ const feesPayments = {
   description: 'Global Association of Risk Professionals | The Only Globally Recognized Membership Association for Risk Managers.',
 };
 
+const programAndExams = {
+  title: 'Program and Exams | Financial Risk Manager (FRM) | GARP',
+  description: 'Global Association of Risk Professionals | The Only Globally Recognized Membership Association for Risk Managers',
+};
+
 export const FRM_META: IMetaObject = Object.freeze({
   overview: {
     title: overview.title,
@@ -35,4 +40,13 @@ export const FRM_META: IMetaObject = Object.freeze({
       description: feesPayments.description,
     },
   },
+  programAndExams: {
+    ...programAndExams,
+    og: {
+      ...programAndExams,
+    },
+    twitter: {
+      ...programAndExams,
+    }
+  }
 });

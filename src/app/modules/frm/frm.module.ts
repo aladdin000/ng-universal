@@ -10,6 +10,7 @@ import {
   FeesPaymentsPage,
   FrmPage,
   OverviewPage,
+  ProgramAndExamsPage,
 } from './pages';
 
 import {
@@ -29,6 +30,7 @@ import {
     FeesPaymentsPage,
     FrmPage,
     OverviewPage,
+    ProgramAndExamsPage,
     HeroBoxOverviewComponent,
     HeroBoxOverviewModal,
   ],

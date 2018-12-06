@@ -2,12 +2,20 @@
 
 .gem-wrapper {
   &.light-blue {
-    polygon:nth-child(odd) {
+    polygon:nth-child(1) {
       fill: $c-light-blue;
     }
 
-    polygon:nth-child(even) {
+    polygon:nth-child(2) {
       fill: $c-light-blue-secondary;
+    }
+
+    polygon:nth-child(3) {
+      fill: $c-light-blue-third;
+    }
+
+    polygon:nth-child(4) {
+      fill: $c-light-blue-fourth;
     }
   }
 
@@ -158,5 +166,18 @@
 
   svg {
     max-width: 100%;
+  }
+}
+.gem-wrapper {
+  svg {
+    height: 120px;
+    width: 40px;
+  }
+
+  .gem {
+    &-footer {
+      height: 290px;
+      width: 260px;
+    }
   }
 }

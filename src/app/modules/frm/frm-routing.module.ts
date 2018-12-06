@@ -7,6 +7,7 @@ import {
   FrmPage,
   FeesPaymentsPage,
   OverviewPage,
+  ProgramAndExamsPage,
 } from './pages';
 
 const routes: Routes = [
@@ -18,6 +19,11 @@ const routes: Routes = [
         path: '',
         component: OverviewPage,
         data: { meta: FRM_META.overview },
+      },
+      {
+        path: 'program-exams',
+        component: ProgramAndExamsPage,
+        data: { meta: FRM_META.programAndExams },
       },
       {
         path: 'fees-payments',
