@@ -12,6 +12,6 @@ export class PriceBoxComponent {
     @Input() public price: string;
     @Input() public enrollmentFee: string;
     @Input() public examFee: string;
-    @Input() public link: string;
+    @Input() public url: string;
     @Input() public disabled: boolean;
 }
