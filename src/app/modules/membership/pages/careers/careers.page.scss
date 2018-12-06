@@ -1,0 +1,246 @@
+@import "../../../../../style-variables";
+
+.common {
+  &-title {
+    @include common-title;
+  }
+
+  &-text {
+    @include common-text;
+  }
+
+  &-link {
+    @include common-link;
+    font-weight: bold;
+  }
+
+  &-button {
+    @include main-button;
+  }
+}
+
+.section {
+  &-jobs {
+    position: relative;
+    margin-top: 3rem;
+  }
+
+  &-hiring,
+  &-internships {
+    position: relative;
+    margin-top: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-color: $c-light-white;
+
+    @media (min-width: 600px) {
+      padding-top: 12rem;
+      padding-bottom: 12rem;
+    }
+  }
+
+  &-market {
+    position: relative;
+    margin-top: 6rem
+  }
+
+  &-footer {
+    position: relative;
+    margin: 2rem 0 8rem;
+  }
+}
+
+.jobs {
+  @include common-section;
+  margin-top: 4rem;
+
+  @media (min-width: $s-w-md) {
+    margin-top: 0;
+  }
+
+  &-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &-box {
+    margin-top: 1rem;
+    padding: 15px;
+
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+
+    &-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      line-height: 1.3;
+
+      @media (min-width: $s-w-md) {
+        font-size: 1.5rem;
+      }
+    }
+
+    p {
+      @include common-text;
+      font-weight: normal;
+      margin: 0;
+
+      &:first-child {
+        margin-top: .5rem;
+      }
+    }
+  }
+}
+
+.hiring {
+  @include common-section;
+  margin-top: 6rem;
+
+  @media (max-width: 767px) {
+    margin-top: 8rem;
+  }
+
+  &-angle {
+    @include common-angle;
+    background-image: url(/assets/images/diagonal-white-top-reverse.svg);
+    bottom: auto;
+    top: 0;
+    background-position: top;
+  }
+
+  &-text {
+    @include common-text;
+    font-weight: normal;
+  }
+
+  &-button {
+    @include main-button;
+
+    @media (max-width: 600px) {
+      display: block;
+      width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &-secondary {
+      @include common-button-white;
+      margin-left: 1rem;
+
+      @media (max-width: 600px) {
+        display: block;
+        width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+.market {
+  @include common-section;
+  margin-top: 2rem;
+
+  &-gem {
+    @include common-gem;
+    right: 0;
+    top: -300px;
+
+    @media (min-width: 769px) {
+      display: block;
+    }
+  }
+
+  &-box {
+    margin-top: 2rem;
+
+    &-text {
+      @include common-text;
+      margin: 0;
+      font-weight: normal;
+    }
+  }
+}
+
+.internships {
+  @include common-section;
+  margin-top: 2rem;
+
+  @media (min-width: $s-w-md) {
+    margin-top: 10rem;
+  }
+
+  &-angle {
+    @include common-angle;
+
+    &-top {
+      background-image: url(/assets/images/diagonal-white-top-reverse.svg);
+      bottom: auto;
+      top: 0;
+      background-position: top;
+    }
+
+    &-bot {
+      background-image: url(/assets/images/diagonal-white-bottom-reverse.svg);
+      top: auto;
+      bottom: -2px;
+      background-position: bottom;
+    }
+  }
+
+  &-image {
+    margin-top: 2rem;
+    width: 80%;
+    top: 20px;
+    left: 0;
+    z-index: 3;
+
+    @media (min-width: $s-w-md) {
+      position: absolute;
+      top: 130px;
+      width: 38%;
+      max-width: 560px;
+    }
+  }
+
+  &-offset {
+    margin-top: 6rem;
+
+    @media (max-width: 767px) {
+      margin-top: 4rem;
+    }
+  }
+}
+
+.footer {
+  @include common-section;
+  margin-top: 2rem;
+
+  &-gem {
+    @include common-gem;
+    top: -190px;
+    right: 0;
+
+    @media (min-width: 769px) {
+      display: block;
+    }
+  }
+}
+
+.slide {
+  &-gem {
+    @include common-gem;
+    margin-top: 2rem;
+    left: 0;
+    bottom: 90px;
+
+    @media (min-width: 769px) {
+      display: block;
+    }
+  }
+}
+
+.main-box-mobile {
+  @include common-hero-box-mobile;
+}

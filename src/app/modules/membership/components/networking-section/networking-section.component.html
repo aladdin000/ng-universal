@@ -1,0 +1,23 @@
+<section class="row network">
+  <div class="col-sm-5">
+    <h2 class="common-title">
+      {{ network.name }}
+    </h2>
+  </div>
+  <div class="col-sm-7">
+    <h3 class="network-title">
+      {{ network.title }}
+    </h3>
+    <p class="network-text">
+      {{ network.text }}
+    </p>
+    <a
+      class="network-button"
+      [title]="network.linkText"
+      [href]="network.link"
+      target="_blank"
+    >
+      {{ network.linkText }}
+    </a>
+  </div>
+</section>

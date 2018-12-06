@@ -1,0 +1,55 @@
+<div class="wrapper">
+  <div class="slider-arrows" [ngClass]="color">
+    <i
+      class="nc-simple-icon slider-arrow slider-arrow-left hide"
+      (click)="goToPrevPage()"
+      #arrowLeft
+    ></i>
+    <i
+      class="nc-simple-icon slider-arrow slider-arrow-right"
+      (click)="goToNextPage()"
+      #arrowRight
+    ></i>
+  </div>
+  <div class="box-wrapper">
+    <div class="box" id="box" [ngClass]="color">
+      <div class="box-header">
+        <h2 class="common-title box-header-title">
+          Meet a certified FRM
+        </h2>
+        <p class="box-header-text">
+          Hear what FRMs have to say about their certification
+        </p>
+      </div>
+      <div class="slider-wrapper">
+        <div class="slider">
+          <div class="slider-list">
+            <div class="slider-track" #sliderTrack>
+              <div
+                class="slider-slide"
+                *ngFor="let slides of allSlides"
+              >
+                <div
+                  class="slider-slide-box"
+                  *ngFor="let slide of slides"
+                >
+                  <ng-container *ngIf="slide.video; else textSlide">
+                    <app-grid-slide-video
+                      [testimonial]="slide"
+                      [color]="color"
+                    ></app-grid-slide-video>
+                  </ng-container>
+                  <ng-template #textSlide>
+                    <app-grid-slide-text
+                      [testimonial]="slide"
+                    ></app-grid-slide-text>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

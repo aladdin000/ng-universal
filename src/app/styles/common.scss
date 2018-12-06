@@ -1,0 +1,317 @@
+@mixin main-button {
+  display: inline-block;
+  cursor: pointer;
+  width: 300px;
+  max-width: 100%;
+  margin-top: 3rem;
+  border-radius: 2px;
+  padding: 12px;
+  background: $c-primary-light;
+  border: 2px solid $c-primary-light;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: background-color .3s,border-color .3s;
+  outline: none;
+  font-weight: bold;
+
+  &:link {
+    text-decoration: none;
+  }
+
+  &:hover, &:focus {
+    background-color: $c-light-blue-secondary;
+    border-color: $c-light-blue-secondary;
+  }
+}
+
+@mixin common-button-white {
+  @include main-button;
+
+  color: $c-primary-light;
+  border-color: $c-primary-light;
+  background-color: #FFFFFF;
+
+  &:hover,
+  &:focus {
+    background-color: $c-light-grey-secondary;
+    border-color: $c-light-grey-secondary;
+    color: #FFFFFF;
+  }
+}
+
+@mixin common-section {
+  max-width: 1100px;
+  margin: 3rem auto 0;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  @media (min-width: $s-w-md) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@mixin common-title {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 300;
+  color: $c-light-grey;
+
+  @media (min-width: $s-w-md) {
+    font-size: 2.25rem;
+  }
+
+  @media (min-width: 1000px) {
+    font-size: 3.125rem;
+  }
+}
+
+@mixin common-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 2rem 0 0;
+  font-weight: 300;
+  letter-spacing: .7px;
+}
+
+@mixin common-angle {
+  background-repeat: no-repeat;
+  background-size: 110%;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  margin: 0;
+}
+
+@mixin common-large-wrapper {
+  position: relative;
+  margin-top: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: $c-light-white;
+
+  @media (min-width: 600px) {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
+}
+
+@mixin common-rainbow-list {
+  &:before {
+    display: block;
+    font-size: 1.75rem;
+    position: absolute;
+    left: 0;
+    top: -10px;
+    content: "\2022";
+    color: $c-main-dark;
+  }
+
+  &:nth-child(11n + 1):before {
+    color: $c-light-blue;
+  }
+
+  &:nth-child(11n + 2):before {
+    color: $c-dark-blue;
+  }
+
+  &:nth-child(11n + 3):before {
+    color: $c-dark-orange;
+  }
+
+  &:nth-child(11n + 4):before {
+    color: $c-dark-orange-secondary;
+  }
+
+  &:nth-child(11n + 5):before {
+    color: $c-dark-purple;
+  }
+
+  &:nth-child(11n + 6):before {
+    color: $c-dark-purple-secondary;
+  }
+
+  &:nth-child(11n + 7):before {
+    color: $c-dark-yellow;
+  }
+
+  &:nth-child(11n + 8):before {
+    color: $c-dark-yellow-secondary;
+  }
+
+  &:nth-child(11n + 9):before {
+    color: $c-light-green;
+  }
+
+  &:nth-child(11n + 10):before {
+    color: $c-dark-green-secondary;
+  }
+
+  &:nth-child(11n + 11):before {
+    color: $c-main-dark;
+  }
+}
+
+@mixin common-link {
+  color: $c-primary-light;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover, &:focus {
+    color: $c-light-blue-secondary;
+  }
+}
+
+@mixin common-gem {
+  display: none;
+  position: absolute;
+  z-index: 3;
+
+  @media (min-width: 1080px) {
+    display: block;
+  }
+}
+
+@mixin common-hero-box-mobile {
+  display: block;
+  position: relative;
+  padding: 0 1rem;
+  margin-top: 4em;
+  min-height: 400px;
+
+  @media (min-width: 1040px) {
+    display: none;
+  }
+
+  /deep/ .hero {
+    position: relative;
+    margin: 0 auto;
+    bottom: unset;
+    right: unset;
+  }
+}
+
+@mixin common-diamond($color) {
+  $diamond-vertical-b-w: 17.5px;
+  $diamond-vertical-s-w: 9.5px;
+  $diamond-horizontal-b-w: 31px;
+  $diamond-horizontal-s-w: 18px;
+
+  .diamond {
+    &-rhombus {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      margin: 0;
+      position: absolute;
+      top: -18px;
+      border-width: $diamond-vertical-b-w 0;
+
+      &-small {
+        top: -8.75%;
+        border-width: $diamond-vertical-s-w 0;
+
+        &.diamond-rhombus-left {
+          border-right-width: $diamond-horizontal-s-w;
+          left: 22px;
+        }
+
+        &.diamond-rhombus-right {
+          border-left-width: $diamond-horizontal-s-w;
+          left: 40px;
+        }
+      }
+
+      &-left {
+        border-color: transparent $c-main-dark transparent transparent;
+        border-right-width: $diamond-horizontal-b-w;
+        left: 21px;
+      }
+
+      &-right {
+        border-color: transparent transparent transparent $color;
+        border-left-width: $diamond-horizontal-b-w;
+        left: 52px;
+      }
+    }
+  }
+}
+
+@mixin common-ribbon($color, $secondary) {
+  $ribbon-height: 30px;
+  $ribbon-padding: 5px;
+
+  .ribbon {
+    height: $ribbon-height;
+    position: absolute;
+    top: 15px;
+    min-width: 100px;
+    left: 2px;
+    color: #FFFFFF;
+    text-align: center;
+    padding: $ribbon-padding;
+    background-color: $color;
+    z-index: 1;
+
+    &-arrow {
+      width: 0;
+      height: 0;
+      left: 6px;
+      z-index: -1;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-right: 7px solid $secondary;
+      transform: rotate(135deg);
+      position: absolute;
+      margin-top: 0;
+      top: $ribbon-height + $ribbon-padding * 2;
+    }
+  }
+}
+
+@mixin common-footer {
+  .footer {
+    position: relative;
+    margin-top: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-color: $c-light-white;
+
+    @media (min-width: $s-w-md) {
+      padding-top: 9rem;
+      padding-bottom: 10rem;
+    }
+
+    &-angle {
+      @include common-angle;
+      background-image: url(/assets/images/diagonal-white-top.svg);
+      bottom: auto;
+      top: 0;
+      background-position: top;
+    }
+
+    &-gem {
+      @include common-gem;
+      display: block;
+      position: absolute;
+      bottom: -115px;
+      z-index: 4;
+      max-width: 75px;
+      margin-top: 2rem;
+
+      @media (min-width: $s-w-md) {
+        max-width: 260px;
+        bottom: -7px;
+      }
+    }
+  }
+}

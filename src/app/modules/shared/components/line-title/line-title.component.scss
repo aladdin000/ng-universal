@@ -1,0 +1,142 @@
+@import "../../../../../style-variables";
+
+$c-erp: #B0C636;
+$c-erp-secondary: #849C3A;
+$c-courses: #F05123;
+$c-courses-secondary: #C44826;
+$c-member: #B8258F;
+$c-member-secondary: #7F236E;
+$c-events: #00AB91;
+$c-events-secondary: #00876E;
+$c-cpd: #FDB515;
+$c-cpd-secondary: #CE9126;
+$c-corp: #9DA7AE;
+$c-corp-secondary: #081A31;
+$c-gri: #00A551;
+$c-gri-secondary: #006738;
+
+@mixin shedColor($c-one, $c-two) {
+  path[stroke="colorOne"] {
+    stroke: $c-one;
+  }
+
+  path[stroke="colorTwo"] {
+    stroke: $c-two;
+  }
+}
+
+.line-title {
+  @include common-section;
+  max-width: 1200px;
+  margin-top: 0;
+
+  > div {
+    @media (max-width: 767px) {
+      padding: 0;
+    }
+  }
+
+  &-wrapper {
+    position: relative;
+    margin: 3.5rem 0;
+
+    @media (min-width: 975px) {
+      margin: 5rem 0;
+      border-top: thin solid;
+      border-bottom: thin solid;
+      height: 5.1rem;
+    }
+
+    @media (min-width: 1250px) {
+      height: 6.25rem;
+    }
+  }
+
+  &-gem {
+    display: none;
+    position: absolute;
+    top: -66px;
+    width: 60px;
+
+    @media (min-width: 975px) {
+      display: block;
+    }
+  }
+
+  &-title {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 400;
+    max-width: 100%;
+    letter-spacing: 2px;
+
+    @media (min-width: $s-w-md) {
+      font-size: 5rem;
+    }
+
+    @media (min-width: 975px) {
+      padding-top: 18px;
+      padding-bottom: 5px;
+      font-size: 3.15rem;
+    }
+
+    @media (min-width: 1250px) {
+      font-size: 4rem;
+    }
+  }
+
+  &-image {
+    height: 100%;
+
+    &-wrapper {
+      display: none;
+
+      @media (min-width: 975px) {
+        display: block;
+        background-size: cover;
+        position: absolute;
+        right: 0;
+        height: 5rem;
+      }
+
+      @media (min-width: 1250px) {
+        height: 6.2rem;
+      }
+    }
+  }
+
+  svg {
+    height: 100%;
+    width: auto;
+
+    &.erp {
+      @include shedColor($c-erp, $c-erp-secondary);
+    }
+
+    &.courses {
+      @include shedColor($c-courses, $c-courses-secondary);
+    }
+
+    &.member {
+      @include shedColor($c-member, $c-member-secondary);
+    }
+
+    &.events {
+      @include shedColor($c-events, $c-events-secondary);
+    }
+
+    &.cpd {
+      @include shedColor($c-cpd, $c-cpd-secondary);
+    }
+
+    &.corp {
+      @include shedColor($c-corp, $c-corp-secondary);
+    }
+
+    &.gri {
+      @include shedColor($c-gri, $c-gri-secondary);
+    }
+
+  }
+}

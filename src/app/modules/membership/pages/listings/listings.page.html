@@ -1,0 +1,247 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="col-sm-12">
+      <h1 class="title">
+        Chapter Listings
+      </h1>
+    </div>
+    <div class="col-sm-12 list">
+      <div class="col-sm-4">
+        <h2 class="list-title">
+          Africa
+        </h2>
+        <div
+          class="list-box-wrapper"
+          *ngFor="let africaChapter of africaChapters"
+          [ngClass]="{ 'opened-box': openedIdChapters.includes(africaChapter.id) }"
+        >
+          <h5 class="list-box-title" title="{{ africaChapter.name }}">
+            <a class="list-box-link" (click)="toggleId(africaChapter.id)">
+              {{ africaChapter.name }}
+            </a>
+          </h5>
+          <div class="list-box">
+            <p *ngIf="hasDirector(africaChapter.members)">
+              <strong>Directors:</strong>
+            </p>
+            <ul>
+              <ng-container *ngFor="let member of africaChapter.members">
+                <li *ngIf="member.isDirector">
+                  {{ member.contact.name.trim() }}
+                  <span>, {{ member.title }}</span>
+                </li>
+              </ng-container>
+            </ul>
+            <p *ngIf="hasCommitteeMembers(africaChapter.members)">
+              <strong>Committee Members:</strong>
+            </p>
+            <ul>
+              <ng-container *ngFor="let member of africaChapter.members">
+                <li *ngIf="member.isCommitteeMember">
+                  {{ member.contact.name.trim() }}
+                  <span>, {{ member.title }}</span>
+                </li>
+              </ng-container>
+            </ul>
+            <a
+              class="list-button"
+              href="https://my.garp.org/Login?start=settings_chapters"
+              title="Select this chapter"
+              target="_blank"
+            >
+              Select this chapter
+            </a>
+          </div>
+        </div>
+        <h2 class="list-title">
+          Americas
+        </h2>
+        <div
+          class="list-box-wrapper"
+          *ngFor="let americasChapter of americasChapters"
+          [ngClass]="{ 'opened-box': openedIdChapters.includes(americasChapter.id) }"
+        >
+          <h5 class="list-box-title" title="{{ americasChapter.name }}">
+            <a class="list-box-link" (click)="toggleId(americasChapter.id)">
+              {{ americasChapter.name }}
+            </a>
+          </h5>
+          <div class="list-box">
+            <p class="list-box-subtitle" *ngIf="hasDirector(americasChapter.members)">
+              <strong>Directors:</strong>
+            </p>
+            <ul class="list-box-list">
+              <ng-container *ngFor="let member of americasChapter.members">
+                <li *ngIf="member.isDirector">
+                  {{ member.contact.name.trim() }}
+                  <span>, {{ member.title }}</span>
+                </li>
+              </ng-container>
+            </ul>
+            <p *ngIf="hasCommitteeMembers(americasChapter.members)">
+              <strong>Committee Members:</strong>
+            </p>
+            <ul>
+              <ng-container *ngFor="let member of americasChapter.members">
+                <li *ngIf="member.isCommitteeMember">
+                  {{ member.contact.name.trim() }}
+                  <span>, {{ member.title }}</span>
+                </li>
+              </ng-container>
+            </ul>
+            <a
+              class="list-button"
+              href="https://my.garp.org/Login?start=settings_chapters"
+              title="Select this chapter"
+              target="_blank"
+            >
+              Select this chapter
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <h2 class="list-title">
+          Asia Oceania
+        </h2>
+        <div
+          class="list-box-wrapper"
+          *ngFor="let oceaniaChapter of oceaniaChapters"
+          [ngClass]="{ 'opened-box': openedIdChapters.includes(oceaniaChapter.id) }"
+        >
+          <h5 class="list-box-title" title="{{ oceaniaChapter.name }}">
+            <a class="list-box-link" (click)="toggleId(oceaniaChapter.id)">
+              {{ oceaniaChapter.name }}
+            </a>
+          </h5>
+          <div class="list-box">
+            <p *ngIf="hasDirector(oceaniaChapter.members)">
+              <strong>Directors:</strong>
+            </p>
+            <ul>
+              <ng-container *ngFor="let member of oceaniaChapter.members">
+                <li *ngIf="member.isDirector">
+                  {{ member.contact.name.trim() }}
+                  <span>, {{ member.title }}</span>
+                </li>
+              </ng-container>
+            </ul>
+            <p *ngIf="hasCommitteeMembers(oceaniaChapter.members)">
+              <strong>Committee Members:</strong>
+            </p>
+            <ul>
+              <ng-container *ngFor="let member of oceaniaChapter.members">
+                <li *ngIf="member.isCommitteeMember">
+                  {{ member.contact.name.trim() }}
+                  <span>, {{ member.title }}</span>
+                </li>
+              </ng-container>
+            </ul>
+            <a
+              class="list-button"
+              href="https://my.garp.org/Login?start=settings_chapters"
+              title="Select this chapter"
+              target="_blank"
+            >
+              Select this chapter
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <h2 class="list-title">
+          Europe
+        </h2>
+        <div
+          class="list-box-wrapper"
+          *ngFor="let europeChapter of europeChapters"
+          [ngClass]="{ 'opened-box': openedIdChapters.includes(europeChapter.id) }"
+        >
+          <h5 class="list-box-title" title="{{ europeChapter.name }}">
+            <a class="list-box-link" (click)="toggleId(europeChapter.id)">
+              {{ europeChapter.name }}
+            </a>
+          </h5>
+          <div class="list-box">
+            <p *ngIf="hasDirector(europeChapter.members)">
+              <strong>Directors:</strong>
+            </p>
+            <ul>
+              <ng-container *ngFor="let member of europeChapter.members">
+                <li *ngIf="member.isDirector">
+                  {{ member.contact.name.trim() }}
+                  <span>, {{ member.title }}</span>
+                </li>
+              </ng-container>
+            </ul>
+            <p *ngIf="hasCommitteeMembers(europeChapter.members)">
+              <strong>Committee Members:</strong>
+            </p>
+            <ul>
+              <ng-container *ngFor="let member of europeChapter.members">
+                <li *ngIf="member.isCommitteeMember">
+                  {{ member.contact.name.trim() }}
+                  <span>, {{ member.title }}</span>
+                </li>
+              </ng-container>
+            </ul>
+            <a
+              class="list-button"
+              href="https://my.garp.org/Login?start=settings_chapters"
+              title="Select this chapter"
+              target="_blank"
+            >
+              Select this chapter
+            </a>
+          </div>
+        </div>
+        <h2 class="list-title">
+          Middle East
+        </h2>
+        <div
+          class="list-box-wrapper"
+          *ngFor="let eastChapter of eastChapters"
+          [ngClass]="{ 'opened-box': openedIdChapters.includes(eastChapter.id) }"
+        >
+          <h5 class="list-box-title" title="{{ eastChapter.name }}">
+            <a class="list-box-link" (click)="toggleId(eastChapter.id)">
+              {{ eastChapter.name }}
+            </a>
+          </h5>
+          <div class="list-box">
+            <p *ngIf="hasDirector(eastChapter.members)">
+              <strong>Directors:</strong>
+            </p>
+            <ul>
+              <ng-container *ngFor="let member of eastChapter.members">
+                <li *ngIf="member.isDirector">
+                  {{ member.contact.name.trim() }}
+                  <span>, {{ member.title }}</span>
+                </li>
+              </ng-container>
+            </ul>
+            <p *ngIf="hasCommitteeMembers(eastChapter.members)">
+              <strong>Committee Members:</strong>
+            </p>
+            <ul>
+              <ng-container *ngFor="let member of eastChapter.members">
+                <li *ngIf="member.isCommitteeMember">
+                  {{ member.contact.name.trim() }}
+                  <span>, {{ member.title }}</span>
+                </li>
+              </ng-container>
+            </ul>
+            <a
+              class="list-button"
+              href="https://my.garp.org/Login?start=settings_chapters"
+              title="Select this chapter"
+              target="_blank"
+            >
+              Select this chapter
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

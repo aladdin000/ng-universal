@@ -1,0 +1,140 @@
+<ng-template #linksRef>
+  <h2 class="main-left-title">
+    Downloads
+  </h2>
+  <div>
+    <a
+      class="main-button"
+      href="https://go.garp.org/l/39542/2015-09-30/315zdf/39542/90068/risk_principles_for_asset_managers2008.pdf"
+      download
+    >
+      Risk Principles 2008
+    </a>
+  </div>
+  <div>
+    <a
+      class="main-button"
+      href="https://go.garp.org/l/39542/2015-09-30/315zdc/39542/90066/BSRMF_Risk_Principles_2015.pdf"
+      download
+    >
+      Risk Principles 2015
+    </a>
+  </div>
+  <div>
+    <a
+      class="main-button"
+      href="https://go.garp.org/BSRMF_liquidity_principles"
+      download
+    >
+      Liquidity Principles 2017
+    </a>
+  </div>
+  <div>
+    <a
+      class="main-button"
+      href="https://go.garp.org/BSRMF-2017-Officers-and-Members"
+      download
+    >
+      Member List
+    </a>
+  </div>
+  <div>
+    <a
+      class="main-button"
+      href="https://go.garp.org/BSRMF_press-release"
+      download
+    >
+      Press Release
+    </a>
+  </div>
+  <h2 class="main-left-title">
+    Links
+  </h2>
+  <a class="main-link">
+    Comment letters
+  </a>
+</ng-template>
+
+<div class="wrapper">
+  <app-line-title
+    title="Buy Side Risk Managers Forum"
+    [type]="lineTitleTypes.corp"
+    gemColor="dark-and-double-grey-1"
+    sizeType="xs"
+  ></app-line-title>
+
+  <div class="main">
+    <div class="row">
+      <div class="col-sm-5 main-left">
+        <ng-content *ngTemplateOutlet="linksRef"></ng-content>
+      </div>
+      <div class="col-sm-7 main-right">
+        <h3 class="main-right-title">
+          What is the GARP Buy Side Risk Managers Forum?
+        </h3>
+        <p>
+          The Buy Side Risk Managers Forum was formed in 2003 as an informal organization
+          to bring together senior risk professionals from some of the largest asset
+          management firms and the investment management subsidiaries of banks and insurance
+          firms to discuss current and emerging risks on the Buy Side. Since that time, the
+          Forum has met on an average of twice-yearly to discuss and work on developing risk
+          management best practices related to the types of firms represented by the Forum's
+          membership. The Forum also co-developed the "Risk Principles for Asset Managers"
+          with Capital Market Risk Advisors, LLC in 2008.
+        </p>
+        <p>
+          GARP Buy Side Risk Managers Forum membership is by invitation-only and is limited
+          to heads of risk management, chief risk officers, or their equivalents positioned
+          at large buy side firms with assets under management generally in the top quintile
+          of the industry.
+        </p>
+
+        <h3 class="main-right-title">
+          Background
+        </h3>
+        <p>
+          In May 2013, the Forum approached GARP about an affiliation. GARP's position as
+          the world's leading risk management professional association and the Forum's
+          desire to expand its activities and outreach to a more global audience, presented
+          a strong and mutually beneficial value proposition to both groups. In June 2013
+          GARP's Board of Trustees unanimously voted to organize the GARP Buy Side Risk
+          Managers Forum and to formally transfer the Forum's activities to GARP for the
+          ultimate benefit of its global membership.
+        </p>
+
+        <h3 class="main-right-title">
+          Purpose of Buy Side Risk Managers Forum
+        </h3>
+        <p>
+          The Forum's purpose is to identify and explore issues of interest to large buy
+          side firms while looking to delineate and publicize thought leadership and best
+          practices. The GARP Buy Side Risk Managers Forum will organize special interest
+          subcommittees to research specific issues and report to the full group on their
+          findings at its semi-annual meetings, at which time the Forum's membership will
+          debate and review the subcommittee's conclusions with the possible objective of
+          preparing educational assets to be made available for GARP's global membership.
+        </p>
+        <p>
+          Additionally, and in furtherance of its mission, the GARP Buy Side Risk Managers
+          Forum's membership will serve to connect buy-side risk professionals from around
+          the world in a non-biased, non-sales-related learning environment.
+        </p>
+
+        <div class="row">
+          <div class="col-xs-12 main-mobile">
+            <ng-content *ngTemplateOutlet="linksRef"></ng-content>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-angle"></div>
+    <app-gem
+      class="footer-gem"
+      type="gem-footer"
+      colorType="dark-and-grey"
+    ></app-gem>
+  </div>
+</div>

@@ -1,0 +1,141 @@
+<ng-template #gemRef>
+  <img class="slide-gem" src="/assets/images/events-big-gem.svg">
+</ng-template>
+
+<div class="wrapper">
+  <app-slide
+    imageUrl="/assets/images/events-header-background.jpg"
+    header="Events"
+    subHeader="Our events prepare risk professionals to make better business decisions."
+    [subHeaderWidth]="widthTypes.medium"
+    [gem]="gemRef"
+    [reverseAngle]="true"
+  ></app-slide>
+
+  <div class="section-events">
+    <div class="row">
+      <div class="col-xs-12 events">
+        <div
+          class="events-box-wrapper"
+          *ngFor="let event of events; let i = index"
+          [ngClass]="(i === 0) ? 'col-sm-6' : 'col-sm-3'"
+        >
+          <div class="ribbon">
+            {{ event.ribbonDate }}
+          </div>
+          <div class="ribbon-arrow"></div>
+          <div
+            class="events-box"
+            [style.backgroundImage]="'url(' + event.imageUrl + ')'"
+          >
+            <div class="events-content">
+              <p class="events-content-title">
+                {{ event.type }}
+              </p>
+              <h2 class="events-content-title-secondary" *ngIf="!event.location">
+                {{ event.name.substr(0, i === 0 ? 95 : 55) }}
+                {{ event.name.length > (i === 0 ? 65 : 45) ? '...' : '' }}
+              </h2>
+              <h2 class="events-content-title-secondary" *ngIf="event.location">
+                {{ event.name.substr(0, i === 0 ? 70 : 45) }}
+                {{ event.name.length > (i === 0 ? 65 : 35) ? '...' : '' }}
+              </h2>
+              <p class="events-content-text">
+                {{ event.location }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row events-button-wrapper">
+      <a class="common-button" *ngIf="events.length > 3">
+        Load More
+      </a>
+    </div>
+  </div>
+
+  <div class="section-near">
+    <app-gem
+      class="near-gem"
+      [flipX]="true"
+      type="gem-4"
+      colorType="light-cyan"
+    ></app-gem>
+    <div class="near-angle"></div>
+    <div class="container near">
+      <div class="row">
+        <div class="col-xs-12 near-content">
+          <h3 class="common-title">
+            Events near you
+          </h3>
+          <p class="near-text">
+            Enjoy a webcast from the comfort of your home, attend a local chapter
+            meeting in your area or make it to one of GARP's site specific conferences.
+            Browse the archives of the event type that is right for you.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-4">
+          <div class="near-box-wrapper">
+            <span class="diamond-rhombus diamond-rhombus-left"></span>
+            <span class="diamond-rhombus diamond-rhombus-right"></span>
+            <div class="near-box">
+              <h2 class="near-box-title">
+                Virtual events
+              </h2>
+              <a class="common-button near-box-button" routerLink="/events/virtual">
+                VIEW ALL
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="near-box-wrapper">
+            <span class="diamond-rhombus diamond-rhombus-left"></span>
+            <span class="diamond-rhombus diamond-rhombus-right"></span>
+            <div class="near-box">
+              <h2 class="near-box-title">
+                In-person events
+              </h2>
+              <a class="common-button near-box-button" routerLink="/events/in-person">
+                VIEW ALL
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-sponsor">
+    <app-gem
+      class="sponsor-gem"
+      type="gem-3"
+      colorType="light-cyan"
+    ></app-gem>
+    <div class="container sponsor">
+      <div class="row">
+        <div class="col-xs-12">
+          <h3 class="common-title">
+            Looking to sponsor an event?
+          </h3>
+          <p class="common-text sponsor-text">
+            Our events reach risk professionals at all career levels in nearly
+            every corner of the globe. Contact our team to get your brand in
+            front of tomorrow's leading risk managers.
+          </p>
+          <div class="sponsor-button-wrapper">
+            <a href="mailto:michael.simone@garp.com" class="common-button-white">
+              Request Media Kit
+            </a>
+            <a class="common-button">
+              Contact Sales
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,294 @@
+<!-- TODO: n&a -->
+
+<ng-template #underButtonRef>
+  <p class="under-button-text">
+    Want to educate your team?
+    <a class="under-button-link">
+      Talk to an advisor about group rates.
+    </a>
+  </p>
+</ng-template>
+
+<ng-template #boxRef>
+  <app-courses-hero-box
+    title="New professionals"
+    secondaryTitle="Who is this course for?"
+    text="
+      Foundations of Financial Risk is an excellent introduction for professionals
+      with one to three years' experience in risk, compliance, treasury, financial IT,
+      operations, trading, auditing, commercial/retail banking, and insurance.
+    "
+  ></app-courses-hero-box>
+</ng-template>
+
+<div class="wrapper-foundation">
+  <app-slide
+    imageUrl="/assets/images/ffr-bg.jpg"
+    header="Foundations of Financial Risk"
+    [headerWidth]="headerWidthTypes.medium"
+    subHeader="An introduction to key concepts in financial risk and risk management"
+    [subHeaderWidth]="headerWidthTypes.large"
+    button="Register"
+    subButton="Download Description"
+    [underButton]="underButtonRef"
+    [box]="boxRef"
+  ></app-slide>
+
+  <div class="foundation-box-mobile">
+    <ng-container *ngTemplateOutlet="boxRef"></ng-container>
+  </div>
+
+  <div class="section-book">
+    <div class="book">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2 class="common-title">
+            Master the fundamental concepts of financial risk and risk management
+          </h2>
+          <p class="common-text">
+            From the back office to the trading room floor, risk affects nearly every
+            aspect of the financial world. Learn the most essential risk topics with
+            this comprehensive course designed for professionals who are new to risk.
+            The course gives a broad overview of key topics like credit, market,
+            operational risk, insurance risk, and the Basel Committee on Banking
+            Supervision’s regulatory principles (Basel Accords).
+          </p>
+        </div>
+        <div class="col-sm-6 book-image-wrapper">
+          <img
+            class="img-responsive book-image"
+            src="/assets/images/foundations.jpg"
+            alt="GARP Foundations of financial risk"
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-benefits">
+    <app-gem
+      class="benefits-gem"
+      type="gem-4"
+      colorType="dark-orange"
+      [flipX]="true"
+    ></app-gem>
+    <div class="benefits-angle"></div>
+    <div class="benefits">
+      <div class="col-sm-12">
+        <h2 class="benefits-title text-center">
+          Course benefits
+        </h2>
+      </div>
+      <div class="col-sm-12 benefits-items-wrapper">
+        <div class="col-sm-6 benefits-item">
+          <div class="col-sm-2 col-sm-offset-1">
+            <img class="benefits-item-image" src="/assets/icons/flexibility.svg">
+          </div>
+
+          <div class="col-sm-8">
+            <h3 class="benefits-item-title">
+              Flexibility
+            </h3>
+            <p class="benefits-item-text">
+              The self-study format allows you to learn on your own schedule
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-6 benefits-item">
+          <div class="col-sm-2 ">
+            <img class="benefits-item-image" src="/assets/icons/global.svg">
+          </div>
+
+          <div class="col-sm-8">
+            <h3 class="benefits-item-title">
+              Global Applicability
+            </h3>
+            <p class="benefits-item-text">
+              The course was developed by risk practitioners to reflect the current international standards
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-6 benefits-item">
+          <div class="col-sm-2 col-sm-offset-1">
+            <img class="benefits-item-image" src="/assets/icons/accessibility.svg">
+          </div>
+
+          <div class="col-sm-8">
+            <h3 class="benefits-item-title">
+              Accessibility
+            </h3>
+            <p class="benefits-item-text">
+              Foundations of Financial Risk was designed to be easy to understand,
+              even for those with little to no experience in the field
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-6 benefits-item">
+          <div class="col-sm-2">
+            <img class="benefits-item-image" src="/assets/icons/certificate.svg">
+          </div>
+
+          <div class="col-sm-8">
+            <h3 class="benefits-item-title">
+              Certificate
+            </h3>
+            <p class="benefits-item-text">
+              Candidates who successfully complete the course will earn a printable certificate
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-study">
+    <img class="img-responsive study-image" src="/assets/images/ffr-comp.jpg">
+    <div class="study">
+      <div class="row">
+        <div class="col-sm-6">
+        </div>
+        <div class="col-sm-6">
+          <h2 class="study-title">
+            What’s included
+          </h2>
+          <p class="study-text">
+            Enrollment includes six months of access to an eLearning platform
+          </p>
+          <ul class="study-list">
+            <li>
+              <h3>
+                Ebook
+              </h3>
+            </li>
+            <li>
+              <h3>
+                Slide tutorials
+              </h3>
+            </li>
+            <li>
+              <h3>
+                Downloadable
+                <a href="https://go.garp.org/l/39542/2017-04-12/6pf4cz" target="_blank">
+                  study guide
+                </a>
+              </h3>
+            </li>
+            <li>
+              <h3>
+                Practice questions
+              </h3>
+            </li>
+            <li>
+              <h3>
+                Online knowledge assessment with unlimited retakes
+              </h3>
+            </li>
+            <li>
+              <h3>
+                Downloadable certificate upon successful completion
+              </h3>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-pricing">
+    <div class="pricing-angle"></div>
+    <app-gem
+      class="pricing-gem"
+      type="gem-5"
+      colorType="dark-orange"
+    ></app-gem>
+    <div class="pricing">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="pricing-title text-center">
+            Course pricing
+          </h2>
+          <div class="col-sm-12 pricing-box-wrapper">
+            <div class="pricing-box">
+              <span class="diamond-rhombus diamond-rhombus-right"></span>
+              <span class="diamond-rhombus diamond-rhombus-left"></span>
+              <h3 class="pricing-box-price text-center">
+                USD 199
+              </h3>
+              <h3 class="pricing-box-title text-center">
+                Non-member
+              </h3>
+            </div>
+            <div class="pricing-box">
+              <span class="diamond-rhombus diamond-rhombus-right"></span>
+              <span class="diamond-rhombus diamond-rhombus-left"></span>
+              <h3 class="pricing-box-price text-center">
+                USD 150
+              </h3>
+              <h3 class="pricing-box-title text-center">
+                Member
+              </h3>
+            </div>
+          </div>
+          <div class="pricing-box-text text-center">
+            <a class="pricing-box-button">
+              Register
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-team">
+    <img class="img-responsive team-image" src="/assets/images/ffr-gem.png" alt="">
+    <div class="team">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2 class="team-title">
+            Team registration
+          </h2>
+          <h3  class="team-text">
+            Educate multiple employees in your organization
+          </h3>
+          <div>
+            <a class="team-button">
+              TALK TO AN ADVISOR
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-faq">
+    <div class="faq">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="faq-title">
+            Frequently Asked Questions
+          </h2>
+          <p class="faq-text text-center">
+            Can't find the question you are looking for?
+            <a class="faq-link">
+              Contact us
+            </a>
+          </p>
+          <div class="col-sm-10 col-sm-offset-1">
+            <app-courses-faq></app-courses-faq>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-twitter">
+    <div class="twitter-angle"></div>
+    <app-conversation
+      link="https://twitter.com/hashtag/GARPCOURSES?f=tweets&vertical=default&src=hash"
+    ></app-conversation>
+  </div>
+</div>
+
+<!-- Google &amp; Pardot Tracking partial -->
+<!--<div data-ng-include data-src="'../partials/snippet.html'"></div>-->
+<!-- END Google &amp; Pardot Tracking partial -->

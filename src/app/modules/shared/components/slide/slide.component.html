@@ -1,0 +1,37 @@
+<div class="section-main" #section>
+  <div class="main-content">
+    <h1
+      *ngIf="header"
+      [ngClass]="headerWidth"
+      class="main-content-title"
+    >
+      {{ header }}
+    </h1>
+    <h2
+      *ngIf="subHeader"
+      [ngClass]="subHeaderWidth"
+      class="main-content-sub-title"
+    >
+      {{ subHeader }}
+    </h2>
+    <p
+      *ngIf="text"
+      [ngClass]="textWidth"
+      class="main-content-text"
+    >
+      {{ text }}
+    </p>
+    <a *ngIf="subButton" class="main-button secondary">
+      {{ subButton }}
+    </a>
+    <a *ngIf="button" class="main-button" (click)="this.onButtonClick()">
+      {{ button }}
+    </a>
+    <ng-content *ngTemplateOutlet="underButton"></ng-content>
+  </div>
+  <div class="main-box">
+    <ng-content *ngTemplateOutlet="box"></ng-content>
+  </div>
+  <ng-content *ngTemplateOutlet="gem"></ng-content>
+  <div class="main-content-angle" [ngClass]="{ reverse: reverseAngle }"></div>
+</div>

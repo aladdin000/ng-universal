@@ -1,0 +1,259 @@
+@import "../../../../../style-variables";
+
+$events-box-max-width: 782px;
+
+.section {
+  &-events {
+    margin: 2rem auto 0;
+    max-width: 1080px;
+  }
+
+  &-near {
+    position: relative;
+    margin-top: 2rem;
+    padding: 3rem 0 6rem;
+    background-color: $c-light-white;
+
+    @media (min-width: 500px) {
+      padding-top: 5rem;
+    }
+
+    @media (min-width: $s-w-md) {
+      padding-top: 15%;
+    }
+  }
+
+  &-sponsor {
+    position: relative;
+    margin-top: 2rem;
+    padding: 3rem 0 6rem;
+
+    @media (min-width: 500px) {
+      padding-top: 5rem;
+    }
+
+    @media (min-width: $s-w-md) {
+      padding-top: 15%;
+    }
+  }
+}
+
+.events {
+  @include common-ribbon($c-light-cyan, $c-dark-cyan);
+
+  &-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    background: $c-light-white;
+    min-height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 2px solid $c-light-cyan;
+
+    &:before {
+      background-color: rgba(8, 26, 49, .7);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: "";
+      transition: background-color .3s;
+    }
+
+    &-wrapper {
+      padding-right: 10px;
+      padding-left: 10px;
+      margin-top: 2rem;
+
+      &:first-child {
+        .events-content-title-secondary {
+          font-size: 1.7em;
+        }
+      }
+    }
+  }
+
+  &-content {
+    z-index: 1;
+    background-size: cover;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 1.5em;
+
+    &-title {
+      font-size: 1rem;
+      line-height: 1.5;
+      letter-spacing: .7px;
+      margin: 0;
+      max-width: $events-box-max-width;
+      font-weight: bold;
+
+      &-secondary {
+        line-height: 1.4;
+        font-size: 1.3em;
+        letter-spacing: .7px;
+        margin: .5rem 0 0;
+        max-width: $events-box-max-width;
+        max-height: 140px;
+      }
+    }
+
+    &-text {
+      font-size: 1rem;
+      font-weight: lighter;
+      line-height: 1.5;
+      letter-spacing: .7px;
+      margin: .5rem 0 0;
+    }
+  }
+}
+
+.near {
+  @include common-diamond($c-light-cyan);
+  max-width: 100%;
+  margin-top: 2rem;
+  text-align: center;
+
+  > .row > div {
+    position: relative;
+    cursor: pointer;
+    margin-top: 20px;
+
+    &:first-child {
+      .near-box-wrapper {
+        background-image: url("/assets/images/virtual-event-card-bg.jpg");
+      }
+    }
+
+    &:last-child {
+      .near-box-wrapper {
+        background-image: url("/assets/images/in-person-event-card-bg.jpg");
+      }
+    }
+  }
+
+  &-angle {
+    @include common-angle;
+    background-image: url(/assets/images/diagonal-white-top.svg);
+    bottom: auto;
+    top: 0;
+    background-position: top;
+  }
+
+  &-gem {
+    @include common-gem;
+    right: 0;
+    top: -7em;
+  }
+
+  &-text {
+    max-width: 600px;
+    margin: 2rem auto 0;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  &-box {
+    z-index: 1;
+    background-size: cover;
+    color: #FFFFFF;
+    padding: 1.5em;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      min-height: 300px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: 2px solid $c-light-cyan;
+
+      &:hover {
+        &:before {
+          background-color: rgba(8, 26, 49, .8);
+        }
+      }
+
+      &:before {
+        background-color: rgba(8, 26, 49, .7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        transition: background-color .3s;
+      }
+    }
+
+    &-title {
+      font-weight: normal;
+      line-height: 1.4;
+      font-size: 1.3em;
+      letter-spacing: .7px;
+    }
+  }
+}
+
+.sponsor {
+  margin-top: 2rem;
+  max-width: 100%;
+  text-align: center;
+
+  &-gem {
+    @include common-gem;
+    position: absolute;
+    top: -5em;
+  }
+
+  &-text {
+    margin: 2rem auto 0;
+    max-width: 600px;
+  }
+
+  &-button {
+    &-wrapper {
+      margin-top: 2rem;
+
+      > a:not(:first-child) {
+        margin-left: 1rem;
+      }
+    }
+  }
+}
+
+.common {
+  &-button {
+    @include main-button;
+
+    &-white {
+      @include common-button-white;
+    }
+  }
+
+  &-title {
+    @include common-title;
+  }
+}
+
+.slide-gem {
+  z-index: 3;
+  position: absolute;
+  bottom: -5%;
+  display: none;
+  width: 505px;
+
+  @media (min-width: 1080px) {
+    display: block;
+  }
+
+  @media (min-width: 1250px) {
+    bottom: -12%;
+  }
+}

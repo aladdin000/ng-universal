@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="736px" height="516px" viewBox="0 0 736 516" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g transform="translate(0.000000, -583.000000)">
+        <g transform="translate(337.000000, 841.000000) scale(-1, 1) translate(-337.000000, -841.000000) translate(-63.000000, 539.000000)">
+            <polygon fill="#B8258F" points="800 0 352.941176 312.795942 401.090245 381.512605 800 102.406307"></polygon>
+            <polygon fill="#7F236E" points="295.798319 455.462185 443.697479 353.000588 295.798319 250.420168"></polygon>
+            <polygon fill="#081A31" points="442.016807 352.799429 800 603.361345 800 102.521008"></polygon>
+            <g transform="translate(0.500000, 147.000000)">
+                <polygon fill="#B8258F" points="147.89916 205.883146 295.798319 308.462185 295.798319 103.420168"></polygon>
+                <polygon fill="#081A31" points="147.89916 205.941176 295.798319 103.480923 147.89916 0.899159664"></polygon>
+                <polygon fill="#7F236E" transform="translate(74.550420, 103.420168) scale(-1, 1) translate(-74.550420, -103.420168) " points="0.600840336 205.941176 148.5 103.480923 0.600840336 0.899159664"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

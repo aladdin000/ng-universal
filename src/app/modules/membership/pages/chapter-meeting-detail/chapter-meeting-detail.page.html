@@ -1,0 +1,229 @@
+<div class="wrapper">
+  <div class="head">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="head-content" *ngIf="meeting">
+            <p class="head-text">
+              {{ meeting.chapter.name }}
+            </p>
+            <h1 class="head-title">
+              {{ meeting.meetingName }}
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="details" *ngIf="meeting">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 details-left">
+          <div>
+            <h2 class="common-title">
+              Overview
+            </h2>
+            <div class="common-text" [innerHTML]="sanitizer.bypassSecurityTrustHtml(meeting.synopsis)"></div>
+            <p>
+              <span *ngIf="meeting.presentation || meeting.ceremony || meeting.formation">
+                FRM<sup>®</sup> / ERP<sup>®</sup>
+              </span>
+              <span *ngIf="meeting.presentation">Program Overview</span>
+              <span *ngIf="meeting.presentation && meeting.ceremony && meeting.formation">, </span>
+              <span *ngIf="meeting.presentation && meeting.ceremony && !meeting.formation"> and </span>
+              <span *ngIf="meeting.ceremony">Recognition Ceremony </span>
+              <span *ngIf="(meeting.ceremony || meeting.presentation) && meeting.formation">and </span>
+              <span *ngIf="meeting.formation">Study Group Formation</span>
+            </p>
+          </div>
+          <div *ngIf="speakers.length">
+            <h2 class="common-title">
+              Speakers
+            </h2>
+            <div class="details-speaker" *ngFor="let speaker of speakers">
+              <h3 class="details-speaker-name">
+                {{ speaker.additional.fullName }}</h3>
+              <h4 class="details-speaker-qualify">
+                {{ speaker.additional.qualifications }}
+              </h4>
+              <div class="common-text" [innerHtml]="sanitizer.bypassSecurityTrustHtml(speaker.additional.bio)"></div>
+            </div>
+          </div>
+          <div *ngIf="meeting.isSponsored">
+            <h2 class="common-title">
+              Sponsored By
+            </h2>
+            <div *ngIf="meeting.sponsorLogo" class="row">
+              <div class="col-md-2">
+                <img class="img-responsive" [src]="meeting.sponsorLogo">
+              </div>
+              <div class="col-md-10">
+                <span>
+                  {{ meeting.sponsorName }}
+                </span>
+              </div>
+            </div>
+            <div *ngIf="!meeting.sponsorLogo" class="row">
+              <div class="col-md-12">
+                <span>
+                  {{ meeting.sponsorName }}
+                </span>
+              </div>
+            </div>
+            <div>
+              <span *ngIf="meeting.sponsorInfo" [innerHTML]="sanitizer.bypassSecurityTrustHtml(meeting.sponsorInfo)">
+              </span>
+            </div>
+            <div *ngIf="meeting.sponsorWebsite" class="row">
+              <div class="col-md-12">
+                <a class="common-link" [href]="meeting.sponsorWebsite" target="_blank">
+                  Visit Website
+                </a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h2 class="common-title">
+              Photography Policy
+            </h2>
+            <p class="common-text">
+              Photographs may be taken at GARP Chapter meetings and featured in the photo gallery
+              section of our website. By registering and attending a GARP Chapter meeting, you
+              agree to our photography policy, and understand that your photo may be included in
+              the photo gallery. Please click
+              <a class="common-link" href="https://go.garp.org/garp-photo-policy" target="_blank">here</a>
+              to review our photography policy. If you do not agree to this policy please email
+              <a class="common-link" href="mailto:chapters@garp.com">chapters@garp.com</a>
+              immediately.
+            </p>
+            <div *ngIf="meeting.nonMemberFee && meeting.paymentPolicy">
+              <h2 class="common-title">
+                Payment Policy
+              </h2>
+              <p [innerHTML]="sanitizer.bypassSecurityTrustHtml(meeting.paymentPolicy)"></p>
+            </div>
+            <div *ngIf="meeting.nonMemberFee && meeting.cancellationPolicy">
+              <h2 class="common-title">
+                Cancellation Policy
+              </h2>
+              <p [innerHTML]="sanitizer.bypassSecurityTrustHtml(meeting.cancellationPolicy)"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 details-right">
+          <div class="details-aside">
+            <aside>
+              <h2 class="common-title">
+                Details
+              </h2>
+              <h4 class="common-title-small">
+                When
+              </h4>
+              <p class="common-text-small">
+                {{ dateFormatter(meeting.dateStart, 'MMMM D, YYYY h:mm a') }}
+                <span *ngIf="meeting.dateEnd">
+                  - {{ dateFormatter(meeting.dateEnd, 'h:mm a') }}
+                </span>
+              </p>
+              <h4 class="common-title-small" *ngIf="meeting.meetingLocation">
+                Where
+              </h4>
+              <div class="common-text-small" *ngIf="meeting.meetingLocation">
+                <div *ngIf="meeting.meetingLocation.name">
+                  {{ meeting.meetingLocation.name }}
+                </div>
+                <div *ngIf="meeting.meetingLocation.street">
+                  {{ meeting.meetingLocation.street }}
+                </div>
+                <div *ngIf="meeting.meetingLocation.streetAdditional">
+                  {{ meeting.meetingLocation.streetAdditional }}
+                </div>
+                <div>
+                  <span *ngIf="meeting.meetingLocation.city">
+                    {{ meeting.meetingLocation.city }}
+                  </span>
+                  <span *ngIf="meeting.meetingLocation.city && (meeting.meetingLocation.state || meeting.meetingLocation.postalCode)">
+                    ,
+                  </span>
+                  <span *ngIf="meeting.meetingLocation.state">
+                    {{ meeting.meetingLocation.state }}
+                  </span>
+                  <span *ngIf="meeting.meetingLocation.state && meeting.meetingLocation.postalCode">
+                    ,
+                  </span>
+                  <span *ngIf="meeting.meetingLocation.postalCode">
+                    {{ meeting.meetingLocation.postalCode }}
+                  </span>
+                </div>
+                <div *ngIf="meeting.meetingLocation.country">
+                  {{ meeting.meetingLocation.country }}
+                </div>
+                <div class="details-map" *ngIf="meeting.meetingLocation">
+                  <a
+                    class="common-link"
+                    [href]="'https://maps.google.com/?q=' + meeting.meetingLocation.fullLocation"
+                    target="_blank"
+                  >
+                    (view map)
+                  </a>
+                </div>
+              </div>
+              <div *ngIf="meeting.nonMemberFee">
+                <h4 class="common-title-small">
+                  Price
+                </h4>
+                <p class="common-text-small">
+                  US $0 for Individual Members
+                  <br>
+                  US ${{ meeting.nonMemberFee }} for Affiliates and Guests
+                </p>
+              </div>
+              <div *ngIf="meeting.isRegistrationOpen">
+                <a
+                  class="details-button"
+                  target="_blank"
+                  [href]="'https://my.garp.org/sfdcApp#!/public_chapterMeetingRegistration/' + meeting.id"
+                >
+                  Register Now
+                </a>
+              </div>
+            </aside>
+            <aside *ngIf="hasDirectors">
+              <h2 class="common-title">
+                Chapter Directors
+              </h2>
+              <div *ngFor="let member of getFilteredMembers('isDirector')">
+                <h4 class="common-title-small">
+                  {{ member.contact.name }}
+                </h4>
+                <p class="common-text-small">
+                  {{ member.title }}
+                </p>
+              </div>
+            </aside>
+            <aside *ngIf="hasComMembers" >
+              <h2 class="common-title">
+                Committee Members
+              </h2>
+              <div *ngFor="let member of getFilteredMembers('isCommitteeMember')">
+                <h4 class="common-title-small">
+                  {{ member.contact.name }}
+                </h4>
+                <p class="common-text-small">
+                  {{ member.title }}
+                </p>
+              </div>
+            </aside>
+            <aside>
+              <h5 class="common-title-small">
+                Share this meeting
+              </h5>
+              <!-- TODO: Add social buttons -->
+              <!--<span ng-include=" '../partials/addthis.html' "></span>-->
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

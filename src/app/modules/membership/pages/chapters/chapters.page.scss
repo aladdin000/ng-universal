@@ -1,0 +1,99 @@
+@import "../../../../../style-variables";
+
+@mixin title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  @media (min-width: $s-w-md) {
+    font-size: 1.5rem;
+  }
+}
+
+.common {
+  &-title {
+    @include common-title;
+  }
+
+  &-text {
+    @include common-text;
+    margin: 0;
+  }
+
+  &-button {
+    @include main-button;
+    margin-top: 0;
+
+    @media (max-width: 600px) {
+      display: block;
+      width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &-wrapper {
+      margin-top: 1rem;
+    }
+  }
+
+  &-link {
+    @include common-link;
+  }
+}
+
+.chapter {
+  &s {
+    @include common-section;
+    margin-top: 2rem;
+    max-width: 1200px;
+
+    > .row {
+      &:not(:first-child) {
+        margin-top: 4rem;
+
+        @media (min-width: $s-w-md) {
+          margin-top: 7rem;
+        }
+      }
+    }
+  }
+
+  &-box {
+    margin-top: 2rem;
+
+    &:not(:first-child) {
+      margin-top: 5rem;
+    }
+
+    &-title {
+      @include title;
+    }
+
+    &-text {
+      @include common-text;
+      margin: .5rem 0 0;
+    }
+  }
+
+  &-twitter {
+    margin-top: 5rem;
+
+    &-title {
+      @include title;
+    }
+
+    i {
+      color: $c-primary-light;
+      font-size: 56px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: .5rem;
+    }
+  }
+}
+
+@include common-footer;

@@ -1,0 +1,162 @@
+@import "../../../../../style-variables";
+
+.gem-wrapper {
+  &.light-blue {
+    polygon:nth-child(odd) {
+      fill: $c-light-blue;
+    }
+
+    polygon:nth-child(even) {
+      fill: $c-light-blue-secondary;
+    }
+  }
+
+  &.light-yellow {
+    polygon:nth-child(odd) {
+      fill: $c-light-yellow;
+    }
+
+    polygon:nth-child(even) {
+      fill: $c-light-yellow-secondary;
+    }
+  }
+
+  &.light-cyan {
+    polygon:nth-child(odd) {
+      fill: $c-light-cyan;
+    }
+
+    polygon:nth-child(even) {
+      fill: $c-light-cyan-secondary;
+    }
+  }
+
+  &.dark-blue {
+    polygon:nth-child(odd) {
+      fill: $c-dark-blue;
+    }
+
+    polygon:nth-child(even) {
+      fill: $c-dark-blue-secondary;
+    }
+  }
+
+  &.dark-yellow {
+    polygon:nth-child(odd) {
+      fill: $c-dark-yellow;
+    }
+
+    polygon:nth-child(even) {
+      fill: $c-dark-yellow-secondary;
+    }
+  }
+
+  &.dark-purple {
+    polygon:nth-child(odd) {
+      fill: $c-dark-purple;
+    }
+
+    polygon:nth-child(even) {
+      fill: $c-dark-purple-secondary;
+    }
+  }
+
+  &.dark-green {
+    polygon:nth-child(odd) {
+      fill: $c-dark-green;
+    }
+
+    polygon:nth-child(even) {
+      fill: $c-dark-green-secondary;
+    }
+  }
+
+  &.dark-orange {
+    polygon:nth-child(odd) {
+      fill: $c-dark-orange;
+    }
+
+    polygon:nth-child(even) {
+      fill: $c-dark-orange-secondary;
+    }
+  }
+
+  &.dark-and-grey {
+    polygon:nth-child(odd) {
+      fill: $c-main-dark;
+    }
+
+    polygon:nth-child(even) {
+      fill: $c-light-grey;
+    }
+  }
+
+  &.dark-and-double-grey {
+    &-1 {
+      polygon:nth-child(1),
+      polygon:nth-child(5) {
+        fill: $c-dirty-white;
+      }
+
+      polygon:nth-child(2),
+      polygon:nth-child(4) {
+        fill: $c-dark-blue-secondary;
+      }
+
+      polygon:nth-child(3) {
+        fill: $c-light-grey;
+      }
+    }
+
+    &-2 {
+      polygon:nth-child(1),
+      polygon:nth-child(4) {
+        fill: $c-light-grey;
+      }
+
+      polygon:nth-child(2) {
+        fill: $c-main-dark;
+      }
+
+      polygon:nth-child(3) {
+        fill: $c-dirty-white;
+      }
+    }
+
+    &-3 {
+      polygon:nth-child(1) {
+        fill: $c-main-dark;
+      }
+
+      polygon:nth-child(2),
+      polygon:nth-child(4) {
+        fill: $c-dirty-white;
+      }
+
+      polygon:nth-child(3) {
+        fill: $c-light-grey;
+      }
+    }
+  }
+
+  &.grey-dark-blue {
+    polygon:nth-child(1),
+    polygon:nth-child(4) {
+      fill: $c-dirty-white;
+    }
+
+    polygon:nth-child(2),
+    polygon:nth-child(5) {
+      fill: $c-main-dark;
+    }
+
+    polygon:nth-child(3),
+    polygon:nth-child(6) {
+      fill: $c-dark-blue;
+    }
+  }
+
+  svg {
+    max-width: 100%;
+  }
+}

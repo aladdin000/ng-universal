@@ -1,0 +1,54 @@
+<div class="hero">
+  <app-gem
+    class="hero-gem"
+    type="gem-1-small"
+    colorType="dark-yellow"
+  ></app-gem>
+  <h2 class="hero-year">
+    {{ date.getFullYear() }}
+  </h2>
+  <h3 class="hero-title">
+    FRM CANDIDATE GUIDE
+  </h3>
+  <p class="hero-text">
+    The comprehensive FRM handbook, including information about sitting for the Exam,
+    earning the certification, and using the designation to further your career in risk.
+  </p>
+  <p class="hero-info">
+    By clicking Download you agree to the Privacy Notice, Code of Conduct, Legal Terms
+    and Conditions of Use, and to receiving emails from GARP and select third party
+    providers with news, special offers, promotions and future messages that may be
+    of interest to you.
+  </p>
+  <div class="hero-form-wrapper">
+    <p class="hero-input-error" *ngIf="form.get('email').dirty && form.get('email').hasError('required')">
+      Email is required.
+    </p>
+    <p class="hero-input-error" *ngIf="form.get('email').dirty && form.get('email').hasError('email')">
+      Not a valid email address.
+    </p>
+    <form
+      class="hero-form"
+      [formGroup]="form"
+      (submit)="onSubmit()"
+    >
+      <div class="col-sm-8 hero-input-wrapper">
+        <label class="hero-input-label" for="hero-email">
+          Email Address
+        </label>
+        <input
+          class="hero-input"
+          formControlName="email"
+          id="hero-email"
+          type="email"
+          placeholder="name@example.com"
+        >
+      </div>
+      <div class="col-sm-4 hero-button-wrapper">
+        <button class="hero-button"> <!-- TODO: add file download -->
+          Download
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

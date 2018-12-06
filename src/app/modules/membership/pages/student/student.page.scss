@@ -1,0 +1,26 @@
+@import "../../../../../style-variables";
+
+.student {
+  &-section {
+    @include common-section;
+    max-width: 1200px;
+    margin-top: 0;
+  }
+
+  &-title {
+    @include common-title;
+  }
+
+  &-text {
+    @include common-text;
+    margin-top: 0;
+    font-weight: normal;
+  }
+
+  &-button {
+    @include main-button;
+    margin-top: 2rem;
+  }
+}
+
+@include common-footer;
