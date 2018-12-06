@@ -1,0 +1,20 @@
+<div [class]="'price-box-inner margin-top-2rem ' + (disabled ? 'disabled' : '')">
+    <app-gem
+        class="gem"
+        type="gem-table"
+        colorType="light-blue"
+      ></app-gem>
+    <h3 class="title">{{ title }}</h3>
+    <div class="info margin-top-2rem">
+        <p>{{ startDate }}</p>
+        <hr class="margin-top-2rem" />
+        <p class="margin-top-2rem">{{ endDate }}</p>
+        <h3 class="price margin-top-2rem">{{ price }}</h3>
+        <p class="margin-top-2rem">
+            {{ enrollmentFee }}
+            <br />
+            {{ examFee }}
+        </p>
+        <a class="common-button">Register now</a>
+    </div>
+</div>

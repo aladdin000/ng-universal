@@ -1,5 +1,7 @@
 @import "style-nucleo-outline";
 @import "./style-variables";
+@import "./assets//fonts//ghotam_a";
+
 
 $a-transaction-time: 300ms;
 
@@ -7,6 +9,7 @@ $a-transaction-time: 300ms;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: "Gotham A","Gotham B","Gotham",Arial,Helvetica,sans-serif;
 }
 
 html {
@@ -31,5 +34,9 @@ body {
             background-color $a-transaction-time,
             border-color $a-transaction-time,
             color $a-transaction-time;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }

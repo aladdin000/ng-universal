@@ -12,6 +12,7 @@ import {
   LineTitleComponent,
   PlanBoxComponent,
   SlideComponent,
+  PriceBoxComponent,
 } from './components';
 
 @NgModule({
@@ -26,6 +27,7 @@ import {
     PlanBoxComponent,
     LineTitleComponent,
     SlideComponent,
+    PriceBoxComponent,
   ],
   providers: [
     WindowRefProvider,
@@ -39,6 +41,7 @@ import {
     LineTitleComponent,
     PlanBoxComponent,
     SlideComponent,
+    PriceBoxComponent,
   ],
 })
 export class SharedModule {}
