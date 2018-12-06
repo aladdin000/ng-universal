@@ -1,0 +1,191 @@
+@import "../../../../../style-variables";
+
+.common {
+    &-title {
+      @include common-title;
+  
+      @media (max-width: 767px) {
+        margin-bottom: 2rem;
+      }
+    }
+  
+    &-text {
+      @include common-text;
+      margin: 0;
+  
+      &-secondary {
+        @include common-text;
+        margin: 0;
+        margin-top: 2rem;
+      }
+    }
+  
+    &-link {
+      @include common-link;
+      font-weight: bold;
+      display: inline-block;
+
+      &-secondary {
+        margin-top: 2rem;
+      }
+    }
+  
+    &-right {
+      @media (min-width: $s-w-md) {
+        padding-left: 30px;
+        padding-top: 7px;
+      }
+    }
+
+    &-button {
+      margin-top: 2rem;
+      display: block;
+      cursor: pointer;
+      width: 300px;
+      max-width: 100%;
+      border-radius: 2px;
+      padding: 12px;
+      background: #00a2dd;
+      border: 2px solid #00a2dd;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 1px;
+      transition: background-color .3s,border-color .3s;
+      outline: none;
+      font-weight: bold !important;
+    }
+  }
+
+.section {
+  &-main {
+    @include common-section;
+    max-width: 1200px;
+    margin-top: 0;
+
+    > .row {
+      &:not(:first-child) {
+        margin-top: 4rem;
+
+        @media (min-width: $s-w-md) {
+          margin-top: 7rem;
+        }
+      }
+    }
+
+    br {
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+    ol {
+      margin-top: 2rem;
+      padding-left: 20px;
+    }
+  }
+}
+.path {
+  &-box {
+    border-left: 2px solid $c-light-blue-third;
+    padding-left: 2rem;
+
+    &:not(:first-child) {
+      padding-top: 6rem;
+
+      @media (max-width: 767px) {
+        padding-top: 2rem;
+      }
+    }
+
+    &-title {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: bold;
+      line-height: 1.3;
+      text-transform: uppercase;
+      max-width: 90%;
+
+      @media (min-width: $s-w-md) {
+        font-size: 1.5rem;
+      }
+
+      &:before {
+        content: "";
+        display: block;
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        left: 25px;
+        background: $c-light-blue;
+        border: 3px solid $c-main-dark;
+        border-radius: 50%;
+        margin-top: .625rem;
+      }
+    }
+
+    &-text {
+      margin: 2rem 0 0;
+    }
+  }
+}
+.part {
+  &-title {
+    margin: 6rem 0 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 1.3;
+    text-transform: uppercase;
+    max-width: 90%;
+
+    @media (min-width: $s-w-md) {
+      font-size: 1.5rem;
+    }
+  }
+}
+.congrats {
+  &-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 1.3;
+    text-transform: uppercase;
+    margin: 5rem 0 0;
+
+    @media (min-width: $s-w-md) {
+      font-size: 1.5rem;
+    }
+
+    &-offset {
+      margin-top: 2rem
+    }
+  }
+
+  &-text {
+    @include common-text;
+    margin: 1rem 0 0;
+
+    &-secondary {
+      margin-top: 2rem;
+    }
+
+    &-grey {
+      margin: .5rem 0 0;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: $c-light-grey;
+    }
+  }
+
+  &-image {
+    margin: 0 8px 10px 0;
+
+    @media (min-width: $s-w-md) {
+      max-width: 195px;
+      margin: 0 10px 12px 0;
+    }
+  }
+}
+
+@include common-footer;

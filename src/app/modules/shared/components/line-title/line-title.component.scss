@@ -14,6 +14,8 @@ $c-corp: #9DA7AE;
 $c-corp-secondary: #081A31;
 $c-gri: #00A551;
 $c-gri-secondary: #006738;
+$c-frm: #00a2dd;
+$c-frm-secondary: #006c99;
 
 @mixin shedColor($c-one, $c-two) {
   path[stroke="colorOne"] {
@@ -25,10 +27,21 @@ $c-gri-secondary: #006738;
   }
 }
 
+@mixin borderColor($c-one, $c-two) {
+  border-top: thin solid $c-one;
+  border-bottom: thin solid $c-two;
+
+  @media(max-width: 767px) {
+    border: 0;
+  }
+}
+
+
 .line-title {
   @include common-section;
   max-width: 1200px;
   margin-top: 0;
+  padding-bottom: 5px;
 
   > div {
     @media (max-width: 767px) {
@@ -38,24 +51,52 @@ $c-gri-secondary: #006738;
 
   &-wrapper {
     position: relative;
+    &-frm {
+      @include borderColor($c-frm, $c-frm-secondary);
+    }
+    &-erp {
+      @include borderColor($c-erp, $c-erp-secondary);
+    }
+
+    &-courses {
+      @include borderColor($c-courses, $c-courses-secondary);
+    }
+
+    &-member {
+      @include borderColor($c-member, $c-member-secondary);
+    }
+
+    &-events {
+      @include borderColor($c-events, $c-events-secondary);
+    }
+
+    &-cpd {
+      @include borderColor($c-cpd, $c-cpd-secondary);
+    }
+
+    &-corp {
+      @include borderColor($c-corp, $c-corp-secondary);
+    }
+
+    &-gri {
+      @include borderColor($c-gri, $c-gri-secondary);
+    }
     margin: 3.5rem 0;
 
     @media (min-width: 975px) {
       margin: 5rem 0;
-      border-top: thin solid;
-      border-bottom: thin solid;
       height: 5.1rem;
     }
 
     @media (min-width: 1250px) {
-      height: 6.25rem;
+      height: 7.5rem;
     }
   }
 
   &-gem {
     display: none;
     position: absolute;
-    top: -66px;
+    top: -60px;
     width: 60px;
 
     @media (min-width: 975px) {
@@ -91,6 +132,7 @@ $c-gri-secondary: #006738;
 
     &-wrapper {
       display: none;
+      overflow: hidden;
 
       @media (min-width: 975px) {
         display: block;
@@ -101,7 +143,7 @@ $c-gri-secondary: #006738;
       }
 
       @media (min-width: 1250px) {
-        height: 6.2rem;
+        height: 100%;
       }
     }
   }
@@ -110,6 +152,9 @@ $c-gri-secondary: #006738;
     height: 100%;
     width: auto;
 
+    &.frm {
+      @include shedColor($c-frm, $c-frm-secondary);
+    }
     &.erp {
       @include shedColor($c-erp, $c-erp-secondary);
     }
@@ -137,6 +182,5 @@ $c-gri-secondary: #006738;
     &.gri {
       @include shedColor($c-gri, $c-gri-secondary);
     }
-
   }
 }
