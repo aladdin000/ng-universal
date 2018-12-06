@@ -6,7 +6,7 @@ const overview = {
 };
 
 const feesPayments = {
-  title: 'Global Association of Risk Professionals | GARP',
+  title: 'Fees and Payments | Energy Risk Professional (ERP) | GARP',
   description: 'Global Association of Risk Professionals | The Only Globally Recognized Membership Association for Risk Managers.',
 };
 
