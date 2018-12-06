@@ -1,0 +1,90 @@
+@import "../../../../../style-variables";
+
+$members-image-size: 64px;
+
+.members {
+  @include common-section;
+  margin-top: 6rem;
+
+  > .row:not(:first-child) {
+    margin-top: 2rem;
+  }
+
+  &-title {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  &-text {
+    @include common-text;
+    text-align: center;
+    margin: 2rem 0 0;
+  }
+
+  &-link {
+    @include common-link;
+  }
+
+  &-box {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin: -15px;
+    padding: 0 10px;
+
+    &-wrapper {
+      margin-top: 6rem;
+    }
+
+    &-image {
+      border: 2px solid $c-dark-purple-secondary;
+      height: $members-image-size;
+      width: $members-image-size;
+      display: block;
+      padding: 0;
+      border-radius: 50%;
+    }
+
+    &-content {
+      flex: 1 0 0;
+      padding: 0 15px;
+
+      &-name {
+        font-size: 1rem;
+        line-height: 1.5;
+        border-bottom: 2px solid $c-main-dark;
+        padding-bottom: 6px;
+        margin-bottom: 6px;
+      }
+
+      &-career {
+        font-size: 1rem;
+        line-height: 1.5;
+        letter-spacing: .7px;
+        font-weight: lighter;
+      }
+
+      &-quote {
+        margin: 2rem 0 0;
+        font-size: 1rem;
+        line-height: 1.5;
+        letter-spacing: .7px;
+      }
+    }
+
+    &-link {
+      @include common-link;
+      padding-left: 65px;
+
+      &-wrapper {
+        width: 100%;
+        margin: 2rem 0 0;
+      }
+    }
+  }
+
+  &-button {
+    @include main-button;
+    margin-bottom: 8rem;
+  }
+}

@@ -1,0 +1,85 @@
+@import "../../../../../../style-variables";
+
+$close-btn-width: 30px;
+$c-bg: #00876e;
+
+.close {
+  width: $close-btn-width;
+  font-size: 250%;
+}
+
+.modal {
+  &-title {
+    width: calc(100% - #{$close-btn-width});
+    text-align: center;
+    font-weight: normal;
+    color: $c-bg;
+  }
+
+  &-text {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: .7px;
+    text-align: center;
+    padding: 0 25px;
+  }
+
+  &-body {
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: $c-bg;
+    color: #FFFFFF;
+  }
+
+  &-box {
+    margin-bottom: 1rem;
+
+    &-header {
+      margin-top: 10px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    &-title {
+      margin: 0;
+      font-weight: bold;
+    }
+
+    &-text {
+      font-size: 1rem;
+      line-height: 1.5;
+      letter-spacing: .7px;
+      margin: 0 0 10px;
+    }
+
+    &-link {
+      text-decoration: none;
+      font-weight: bold;
+      color: #FFFFFF;
+      cursor: pointer;
+
+      &:hover, &:focus {
+        color: $c-dirty-white;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &-link {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #FFFFFF;
+    cursor: pointer;
+
+    &:hover, &:focus {
+      color: $c-dirty-white;
+    }
+
+    &-wrapper {
+      padding: 25px 0 10px;
+      text-align: center;
+    }
+  }
+}

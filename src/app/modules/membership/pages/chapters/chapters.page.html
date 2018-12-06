@@ -1,0 +1,147 @@
+<div class="wrapper">
+  <app-line-title
+    title="Chapters"
+    type="member"
+    gemColor="dark-purple"
+  ></app-line-title>
+
+  <div class="chapters">
+    <div class="row">
+      <div class="col-sm-5">
+        <h2 class="common-title">
+          Professional Chapters
+        </h2>
+      </div>
+      <div class="col-sm-7">
+        <p class="common-text">
+          With 20 chapters in more than a dozen countries around the world, our professional
+          Chapters help you make valuable new contacts and stay up to date with today’s most
+          important topics in risk management. As a member of our community, you can attend
+          meetings anywhere in the world, including those outside your home region, and you
+          will always be welcome to come learn and share your thoughts about risk management.
+        </p>
+        <div class="common-button-wrapper">
+          <a class="common-button" [routerLink]="['listings']">
+            View All Chapters
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">
+        <h2 class="common-title">
+          Upcoming Chapter meetings
+        </h2>
+      </div>
+      <div class="col-sm-7">
+        <p class="common-text">
+          Find your next local networking and learning opportunity.
+          <br>
+          <i>All times local to event location</i>
+        </p>
+        <div class="chapter-box" *ngFor="let meeting of meetings">
+          <h3 class="chapter-box-title">
+            {{ meeting.fullFormattedDate }}
+          </h3>
+          <p class="chapter-box-text">
+            {{ meeting.name }}
+          </p>
+          <p class="chapter-box-text">
+            {{ meeting.meetingName }}
+          </p>
+          <p class="chapter-box-text">
+            {{ meeting.hoursTime }}
+          </p>
+          <div class="common-button-wrapper">
+            <a class="common-button" [routerLink]="['meetings', meeting.id]">
+              View Details
+            </a>
+          </div>
+        </div>
+        <div class="chapter-twitter">
+          <h3 class="chapter-twitter-title">
+            Tweeting from the meeting?
+          </h3>
+          <p class="chapter-twitter-text">
+            <i class="fa fa-twitter"></i>
+            <br>
+            Join the conversation!
+            <br>
+            <a
+              class="common-link"
+              href="https://twitter.com/hashtag/GARPchapters?f=tweets&vertical=default"
+              target="_blank"
+            >
+              <strong>#GARPchapters</strong>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">
+        <h2 class="common-title">
+          Chapter meeting presentations
+        </h2>
+      </div>
+      <div class="col-sm-7">
+        <p class="common-text">
+          If you are unable to attend a chapter meeting, you can view the presentation at your convenience from our archive.
+        </p>
+        <div class="common-button-wrapper">
+          <a class="common-button">
+            View the archive
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">
+        <h2 class="common-title">
+          Become a Chapter Director
+        </h2>
+      </div>
+      <div class="col-sm-7">
+        <p class="common-text">
+          We rely on the dedication and enthusiasm of volunteer Chapter Directors to raise GARP awareness
+          and develop a network of risk professionals looking to advance their knowledge and careers. Email
+          <a class="common-link" href="mailto:chapters@garp.com?subject=Chapter%20director%20request">
+            <strong>chapters@garp.com</strong>
+          </a>
+          for Director opportunities. Please include your chapter location.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">
+        <h2 class="common-title">
+          Volunteer in a supporting role
+        </h2>
+      </div>
+      <div class="col-sm-7">
+        <p class="common-text">
+          Many Chapter Directors seek the support of their fellow members in the planning and execution
+          of meetings, either individually or through the formation of a committee. Whether by identifying
+          topics, recruiting speakers, scoping out meeting spaces, or even greeting attendees at the door,
+          you can contribute to your chapter's success by participating as a volunteer.
+          <br>
+          <br>
+          Email
+          <a class="common-link" href="mailto:chapters@garp.com?subject=Chapter%20director%20request">
+            <strong>chapters@garp.com</strong>
+          </a>
+          for volunteer opportunities. Please include your chapter location.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-angle"></div>
+    <app-gem
+      class="footer-gem"
+      type="gem-footer"
+      colorType="dark-purple"
+    ></app-gem>
+  </div>
+</div>

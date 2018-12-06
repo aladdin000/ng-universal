@@ -1,0 +1,35 @@
+@import "style-nucleo-outline";
+@import "./style-variables";
+
+$a-transaction-time: 300ms;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  position: relative;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color: $c-main-dark;
+  font-size: 16px;
+  font-family: sans-serif;
+
+  ul li {
+    font-size: $font-size-list;
+    list-style-type: none;
+  }
+
+  a {
+    transition:
+            background-color $a-transaction-time,
+            border-color $a-transaction-time,
+            color $a-transaction-time;
+  }
+}

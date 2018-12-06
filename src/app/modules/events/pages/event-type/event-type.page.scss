@@ -1,0 +1,62 @@
+@import "../../../../../style-variables";
+
+.section {
+  &-events {
+    position: relative;
+    margin-top: 2rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.event {
+  &s {
+    max-width: 700px;
+    margin: auto;
+  }
+
+  &-box {
+    margin-top: 2rem;
+    color: $c-main-dark;
+
+    @media (min-width: $s-w-md) {
+      width: calc(100% - (170px));
+      padding-right: 10px;
+      padding-left: 10px;
+      margin-top: 0;
+    }
+
+    &-wrapper {
+      padding-bottom: 20px;
+      border-bottom: thin solid $c-light-grey;
+
+      &:not(:first-child) {
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  &-link {
+    @include common-link;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    &-wrapper {
+      margin: 0;
+    }
+  }
+
+  &-location {
+    max-width: 782px;
+    font-weight: bold;
+    color: $c-main-dark;
+  }
+
+  &-button {
+    @include main-button;
+
+    &-wrapper {
+      margin-top: 2rem;
+      text-align: center;
+    }
+  }
+}

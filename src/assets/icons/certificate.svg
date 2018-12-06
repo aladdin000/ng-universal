@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="47px" height="46px" viewBox="0 0 47 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-784.000000, -1772.000000)" stroke="#081A31" stroke-width="2">
+            <g transform="translate(0.000000, 1320.000000)">
+                <g transform="translate(772.000000, 435.000000)">
+                    <g transform="translate(13.000000, 19.000000)">
+                        <polyline points="34.7368421 7.89473684 20.5263158 0 6.31578947 7.89473684"></polyline>
+                        <polyline points="22.5789474 36.3157895 0 36.3157895 0 7.89473684 41.0526316 7.89473684 41.0526316 17.1031579"></polyline>
+                        <path d="M7.89473684,18.1578947 L22.1052632,18.1578947" stroke-linecap="square"></path>
+                        <path d="M7.89473684,26.0526316 L15.7894737,26.0526316" stroke-linecap="square"></path>
+                        <polyline points="43.4210526 30 43.4210526 42.6315789 37.1052632 40.6436062 30.7894737 42.6315789 30.7894737 30"></polyline>
+                        <circle stroke-linecap="square" cx="36.7105263" cy="24.8684211" r="8.28947368"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

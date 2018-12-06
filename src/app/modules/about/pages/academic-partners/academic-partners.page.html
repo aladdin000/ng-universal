@@ -1,0 +1,216 @@
+<div class="wrapper">
+  <app-slide
+    class="academic-partners-slide"
+    imageUrl="/assets/images/hero-academic.webp"
+    header="Academic Partners"
+    [headerWidth]="widthTypes.full"
+    subHeader="Partnerships in risk education"
+    [reverseAngle]="true"
+  ></app-slide>
+
+  <div class="section-role">
+    <img class="role-image img-responsive" src="/assets/images/academic-gem.png">
+    <div class="role">
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-6">
+          <h2 class="common-title">
+            The role of Academic Partners at GARP
+          </h2>
+          <p class="common-text">
+            GARP’s Academic Partnership Program was created to help colleges and
+            universities improve their risk management course offerings. The program
+            offers a wide range of benefits for academic institutions, and combines
+            rigorous instruction with practitioner-driven insight to ensure that
+            students are prepared for the demands of the global financial industry.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-partners">
+    <div class="partners-angle"></div>
+    <div class="partners">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="common-title">
+            About our Partners
+          </h2>
+          <p class="common-text partners-text">
+            Our Academic Partners play a crucial role in educating the next generation of highly
+            qualified risk managers. By aligning with GARP, the institutions join a network of
+            the world’s top risk practitioners and academics, allowing them to create better
+            curriculums that reflect the latest international standards.
+          </p>
+        </div>
+        <div
+          class="col-lg-3 col-md-6 col-sm-6 partners-box-wrapper"
+          *ngFor="let academic of fakeAcademics"
+        >
+          <div class="partners-box text-left" (click)="openModal(academic)">
+            <figure class="text-center">
+              <img
+                class="img-responsive"
+                [src]="academic.image"
+                [title]="academic.name"
+                [alt]="academic.name"
+              >
+            </figure>
+            <p class="text-left partners-box-title">
+              {{ academic.name }}
+            </p>
+            <div class="partners-box-footer">
+              <a class="common-link">
+                Learn more
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 text-center">
+          <a class="common-button">
+            VIEW ALL OF OUR PARTNERS
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-fellowship">
+    <app-gem
+      class="fellowship-gem"
+      type="gem-5"
+      colorType="dark-and-grey"
+    ></app-gem>
+    <div class="fellowship">
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <h2 class="common-title">
+            Research Fellowship
+          </h2>
+          <div class="text-center">
+            <p class="common-text fellowship-text">
+              The GARP Research Fellowship Program promotes ongoing risk research by funding
+              projects relevant to the global risk community. Each semester, the program
+              provides up to US $3,000 for as many as six research proposals from students
+              currently enrolled in Master’s-level programs at our
+              <a class="common-link fellowship-link">
+                Academic Partner universities
+              </a>.
+            </p>
+          </div>
+          <h2 class="fellowship-title">
+            Fellowship Winners
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <span
+            class="fellowship-year"
+            *ngFor="let fellowYear of fakeYears"
+            [ngClass]="{ active: fellowYear === currentYear }"
+          >
+            <a class="common-link" (click)="changeYear(fellowYear)">
+              {{ fellowYear }}
+            </a>
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+      <div class="fellowship-grid" *ngIf="currentFellows.fall.length">
+        <div class="col-xs-12">
+          <h3 class="fellowship-grid-title">
+            FALL {{ currentYear }}
+          </h3>
+        </div>
+        <div
+          class="col-lg-4 col-md-4 col-sm-6 fellowship-members"
+          *ngFor="let fellow of currentFellows.fall"
+        >
+          <div class="fellowship-member">
+            <img [src]="fellow.avatar" class="fellowship-member-image">
+            <div class="fellowship-member-content">
+              <p class="fellowship-member-name">
+                <strong>{{ fellow.name }}</strong>
+              </p>
+              <p class="fellowship-member-bio" *ngIf="fellow.bio">
+                {{ fellow.bio }}
+              </p>
+            </div>
+          </div>
+          <div *ngIf="fellow.research" class="fellowship-member-link-wrapper">
+            <a
+              class="common-link"
+              [href]="fellow.research"
+              download
+            >
+              Download research
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="fellowship-grid" *ngIf="currentFellows.spring.length">
+        <div class="col-xs-12">
+          <h3 class="fellowship-grid-title">
+            SPRING {{ currentYear }}
+          </h3>
+        </div>
+        <div
+          class="col-lg-4 col-md-4 col-sm-6 fellowship-members"
+          *ngFor="let fellow of currentFellows.spring"
+        >
+          <div class="fellowship-member">
+            <img [src]="fellow.avatar" class="fellowship-member-image">
+            <div class="fellowship-member-content">
+              <p class="fellowship-member-name">
+                <strong>{{ fellow.name }}</strong>
+              </p>
+              <p class="fellowship-member-bio" *ngIf="fellow.bio">
+                {{ fellow.bio }}
+              </p>
+            </div>
+          </div>
+          <div *ngIf="fellow.research" class="fellowship-member-link-wrapper">
+            <a
+              class="common-link"
+              [href]="fellow.research"
+              download
+            >
+              Download research
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-apply">
+    <app-gem
+      class="apply-gem"
+      type="gem-3"
+      colorType="dark-and-grey"
+    ></app-gem>
+    <div class="apply-angle"></div>
+    <div class="apply">
+      <div class="row">
+        <div class="col-xs-12 apply-box"> <!-- TODO: ng-if="landingPageContent[0]" -->
+          <h2 class="common-title">
+            Apply now
+          </h2>
+          <!--TODO: <p ng-if="landingPageContent[0].Description__c">{{landingPageContent[0].Description__c}}</p>-->
+          <p class="common-text">
+            Download the Fall 2018 Call for Research Proposals
+          </p>
+          <!-- TODO: ng-if="landingPageContent[0].Third_Party_URL__c" -->
+          <a
+            class="common-button"
+            href="https://go.garp.org/l/39542/2018-10-01/8lfcs2/39542/175707/Call_for_Proposals___FA18.pdf"
+            download
+          > <!-- TODO: ng-href="{{landingPageContent[0].Third_Party_URL__c}}" -->
+            DOWNLOAD GUIDELINES
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

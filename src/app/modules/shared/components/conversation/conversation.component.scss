@@ -1,0 +1,39 @@
+@import "../../../../../style-variables";
+
+.twitter {
+  @include common-section;
+  margin-top: 6rem;
+
+  &-title {
+    @include common-title;
+  }
+
+  &-icon {
+    font-size: 5rem;
+    color: $c-primary-light;
+    transition: color .3s ease-in;
+
+    &-link {
+      &:hover, &:focus {
+        i {
+          color: $c-light-blue-secondary;
+        }
+      }
+    }
+  }
+
+  &-link {
+    margin-top: 2rem;
+    font-weight: bold;
+
+    a {
+      color: $c-primary-light;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover, &:focus {
+        color: $c-light-blue-secondary;
+      }
+    }
+  }
+}

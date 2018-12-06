@@ -1,0 +1,64 @@
+@import "../../../../../style-variables";
+
+$padding: 16px;
+
+@mixin shedColor($color, $secondary) {
+  @include common-diamond($color);
+  border-color: $secondary;
+
+  .box-title {
+    border-color: $secondary;
+  }
+}
+
+.box {
+  background: #FFFFFF;
+  border: 2px solid;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, .5);
+  position: relative;
+
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
+
+  &-title {
+    border-bottom: 2px solid;
+    text-align: center;
+    margin: 0;
+    padding: $padding 0;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+  }
+
+  &-content {
+    padding: $padding;
+  }
+
+  &.purple {
+    @include shedColor($c-dark-purple, $c-dark-purple-secondary);
+  }
+
+  &.blue {
+    @include shedColor($c-light-blue, $c-light-blue-secondary);
+  }
+
+  &.dark-yellow {
+    @include shedColor($c-dark-yellow, $c-dark-yellow-secondary);
+  }
+}
+
+#box {
+  .diamond-rhombus {
+    &-small {
+      top: -10px;
+    }
+
+    &-left {
+      left: 13px;
+    }
+
+    &-right {
+      left: 31px;
+    }
+  }
+}

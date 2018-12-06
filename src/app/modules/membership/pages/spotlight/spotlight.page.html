@@ -1,0 +1,69 @@
+<div class="wrapper">
+  <div class="section-members">
+    <div class="members">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="members-title">
+            Member spotlight
+          </h1>
+          <p class="members-text">
+            The best way to get to know GARP is to get to know our Members. They are professionals
+            from nearly every country in the world. Whether you want to know more about the role of
+            risk manager, or the role GARP plays in this community, these spotlights tell the story.
+            As we add Spotlights, you'll see the practice of risk management through the eyes of GARP's
+            many and diverse practitioners. Do you know someone who would be a great candidate for a
+            Member Spotlight?
+            <a class="members-link" href="mailto:support@garp.org">
+              <strong>Email us today.</strong>
+            </a>
+          </p>
+        </div>
+      </div>
+      <div class="row grid g-u-margin-top--third">
+        <ng-container *ngFor="let testimonial of testimonials; let i = index">
+          <div class="col-lg-4 col-md-4 col-sm-6 members-box-wrapper">
+            <div class="members-box">
+              <img
+                [src]="testimonial.memberPhoto"
+                class="members-box-image"
+                alt=""
+              >
+              <div class="members-box-content">
+                <p class="members-box-content-name">
+                  <strong>
+                    {{ testimonial.name }}
+                    <span *ngIf="testimonial.eRPCertified">, ERP</span>
+                    <span *ngIf="testimonial.fRMCertified">, FRM</span>
+                  </strong>
+                </p>
+                <p class="members-box-content-career">
+                  Individual Member since {{ testimonial.memberSince }}
+                </p>
+                <p class="members-box-content-quote">
+                  {{ testimonial.memberSummary }}
+                </p>
+              </div>
+            </div>
+            <div class="members-box-link-wrapper">
+              <a class="members-box-link" [routerLink]="['..', '..', 'member', 'testimonials', testimonial.id]">
+                <strong>
+                  View {{ testimonial.name.substr(0, testimonial.name.indexOf(' ')) }}'s spotlight
+                </strong>
+              </a>
+            </div>
+          </div>
+          <div class="clearfix" *ngIf="(i + 1) % 3 === 0"></div>
+        </ng-container>
+      </div>
+      <div class="text-center">
+        <a
+          class="members-button"
+          title="Membership"
+          routerLink="/membership"
+        >
+          RETURN TO MEMBERSHIP
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
