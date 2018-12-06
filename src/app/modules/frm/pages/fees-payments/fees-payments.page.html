@@ -1,60 +1,102 @@
 <div class="wrapper">
-    <app-line-title
-        title="FRM fees and payments"
-        [type]="lineTitleTypes.frm"
-        gemColor="light-blue"
-        sizeType="s"
-    ></app-line-title>
-    
-    <div class="section-main">
-        <div class="row new">
-        <div class="col-sm-3 col-md-4">
-            <h2 class="common-title">
-            New <br/> candidate
-            </h2>
-            <h3 class="common-title-secondary">
-            FRM Exam Part I
-            </h3>
-        </div>
-        <div class="col-sm-9 col-md-8 common-left">
-          <div class="row">
-            <div class="col-sm-4 new-box">
-              <app-price-box
-                title="EARLY"
-                startDate="December 1, 2018"
-                endDate="January 31, 2019"
-                price="USD 750"
-                enrollmentFee="Enrollment fee USD 400"
-                examFee="Exam fee USD 350"
-                ></app-price-box>
-            </div>
-            <div class="col-sm-4 new-box">
-                <app-price-box
-                  title="STANDARD"
-                  startDate="February 1, 2019"
-                  endDate="February 28, 2019"
-                  price="USD 875"
-                  enrollmentFee="Enrollment fee USD 400"
-                  examFee="Exam fee USD 475"
-                  disabled="true"
-                  ></app-price-box>
-            </div>
-            <div class="col-sm-4 new-box">
-                <app-price-box
-                  title="LATE"
-                  startDate="March 1, 2019"
-                  endDate="April 15, 2019"
-                  price="USD 1050"
-                  enrollmentFee="Enrollment fee USD 400"
-                  examFee="Exam fee USD 650"
-                  disabled="true"
-                  ></app-price-box>
-            </div>
+  <app-line-title title="FRM fees and payments" [type]="lineTitleTypes.frm" gemColor="light-blue" sizeType="s"></app-line-title>
 
+  <div class="section-main">
+    <div class="row new">
+      <div class="col-sm-3 col-md-4">
+        <h2 class="common-title">
+          New <br /> candidate
+        </h2>
+        <h3 class="common-title-secondary">
+          FRM Exam Part I
+        </h3>
+      </div>
+      <div class="col-sm-9 col-md-8 common-left">
+        <div class="row">
+          <div class="col-sm-4 new-box">
+            <app-price-box title="EARLY" startDate="December 1, 2018" endDate="January 31, 2019" price="USD 750"
+              enrollmentFee="Enrollment fee USD 400" examFee="Exam fee USD 350"></app-price-box>
           </div>
-              
+          <div class="col-sm-4 new-box">
+            <app-price-box title="STANDARD" startDate="February 1, 2019" endDate="February 28, 2019" price="USD 875"
+              enrollmentFee="Enrollment fee USD 400" examFee="Exam fee USD 475" disabled="true"></app-price-box>
+          </div>
+          <div class="col-sm-4 new-box">
+            <app-price-box title="LATE" startDate="March 1, 2019" endDate="April 15, 2019" price="USD 1050"
+              enrollmentFee="Enrollment fee USD 400" examFee="Exam fee USD 650" disabled="true"></app-price-box>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="section-main" id="returning-candidate">
+    <div class="row new">
+      <div class="col-sm-3 col-md-4">
+        <h2 class="common-title">
+          Returning <br /> candidate
+        </h2>
+        <h3 class="common-title-secondary">
+          FRM Exam Part I / FRM Exam Part II
+        </h3>
+      </div>
+      <div class="col-sm-9 col-md-8 common-left">
+        <div class="row">
+          <div class="col-sm-4 new-box">
+            <app-price-box title="EARLY" startDate="December 1, 2018" endDate="January 31, 2019" price="USD 350"
+              enrollmentFee="Enrollment fee USD 0" examFee="Exam fee USD 350"></app-price-box>
+          </div>
+          <div class="col-sm-4 new-box">
+            <app-price-box title="STANDARD" startDate="February 1, 2019" endDate="February 28, 2019" price="USD 475"
+              enrollmentFee="Enrollment fee USD 0" examFee="Exam fee USD 475" disabled="true"></app-price-box>
+          </div>
+          <div class="col-sm-4 new-box">
+            <app-price-box title="LATE" startDate="March 1, 2019" endDate="April 15, 2019" price="USD 650"
+              enrollmentFee="Enrollment fee USD 0" examFee="Exam fee USD 650" disabled="true"></app-price-box>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-main" id="frequently-asked-questions">
+    <div class="row">
+      <div class="col-sm-3 col-md-4 common-left">
+        <h2 class="common-title">
+          Frequently <br> asked questions
+        </h2>
+      </div>
+      <div class="col-sm-9 col-md-8 common-right">
+          <h3 class="common-title-secondary">
+            When is the deadline to pay for the FRM exam?
+          </h3>
+          <p class="common-text-secondary">
+            In order for your exam registration to be considered complete, payment must have been received by GARP by midnight, EDT, on the closing date of each registration period. For the May 2019 FRM Exam, these dates are: January 31, 2019; February 28, 2019; or April 15, 2019, respectively.
+          </p>
+          <h3 class="common-title-secondary margin-top-5rem">
+              How can I pay for the exam?                    
+          </h3>
+          <p class="common-text-secondary">
+            Candidates can pay for their exam registration via the following options:
+          </p>
+          <ol class="margin-top-2rem">
+            <li>Credit card online - GARP accepts MasterCard, Visa, or Amex</li>
+            <li>Check - Must be a US bank check or a foreign check with a US intermediate bank wire</li>
+            <li>Wire - Wire instructions can be found on the bottom of your invoice</li>
+          </ol>
+          <p class="common-text-secondary">
+            For any manual payments by check or wire there is a USD 50 processing fee that will be added to your invoice. Be sure to include your GARP ID, a copy of your invoice, and your signature for approval.
+          </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-angle"></div>
+    <app-gem
+      class="footer-gem"
+      type="gem-footer"
+      colorType="light-blue"
+    ></app-gem>
+  </div>
 </div>
-      
