@@ -21,6 +21,7 @@ import { Contact } from '../../../../../../models/contact';
 })
 export class QuarterPage extends MetaHelper implements OnInit {
   public lineTitleTypes = LINE_TITLE_TYPES;
+  public search: string;
   public quarterData = {
     q1: {
       title: '1st quarter 2018',
@@ -49,6 +50,7 @@ export class QuarterPage extends MetaHelper implements OnInit {
   };
 
   public currentQuarterData: IQuarterData = <IQuarterData>{};
+  public contacts: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -82,9 +84,18 @@ export class QuarterPage extends MetaHelper implements OnInit {
           }, {});
 
           this.currentQuarterData.records = _.map(this.currentQuarterData.records, (value, key) => {
-            return [{ letter: key, data: value }];
+            return { letter: key, data: value };
           });
-        console.log(this.currentQuarterData.records);
+          this.contacts = this.currentQuarterData.records;
       });
+  }
+
+  public onSearch(event) {
+    const value = event.target.value.toLowerCase();
+    this.contacts = this.currentQuarterData.records.map((letter: any) => {
+      const _letter = Object.assign({}, letter);
+      _letter.data = _letter.data.filter((contact) => contact.name.toLowerCase().includes(value));
+      return _letter;
+    });
   }
 }
