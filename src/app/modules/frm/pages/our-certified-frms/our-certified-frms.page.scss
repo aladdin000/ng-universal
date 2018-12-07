@@ -92,11 +92,21 @@
         margin-top: 2rem;
         padding-left: 20px;
       }
+
+      @media(max-width: 767px) {
+        p {
+          font-size: 14px;
+        }
+      }
     }
 }
 .congrats {
   &-title {
     text-transform: uppercase;
+    
+    @media(max-width: 767px) {
+      font-size: 1.1rem;
+    }
   }
 }
 .standOutImg {
