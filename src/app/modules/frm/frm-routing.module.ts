@@ -8,6 +8,7 @@ import {
   FeesPaymentsPage,
   OverviewPage,
   ProgramAndExamsPage,
+  OurCertifiedFrmsPage,
 } from './pages';
 
 const routes: Routes = [
@@ -30,6 +31,11 @@ const routes: Routes = [
         component: FeesPaymentsPage,
         data: { meta: FRM_META.feesPayments },
       },
+      {
+        path: 'our-certified-frms',
+        component: OurCertifiedFrmsPage,
+        data: { meta: FRM_META.ourCertifiedFrms }
+      }
     ],
   }
 ];
