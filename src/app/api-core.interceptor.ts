@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class ApiCoreInterceptor implements HttpInterceptor {
-  private apiUrl = '/api/v1/';
+  // private apiUrl = '/api/v1/';
+  private apiUrl = 'http://localhost:4200/api/v1/';
 
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     request = request.clone({

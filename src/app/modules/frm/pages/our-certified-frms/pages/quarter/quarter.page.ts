@@ -96,16 +96,15 @@ export class QuarterPage extends MetaHelper implements OnInit {
           this.currentQuarterData.records = _.map(this.currentQuarterData.records, (value, key) => {
             return { letter: key, data: value };
           });
-          this.filteredContacts = this.currentQuarterData.records;
+          this.filteredContacts = _.cloneDeep(this.currentQuarterData.records);
       });
   }
 
   public onSearch(event) {
     const value = event.target.value.toLowerCase();
-    this.filteredContacts = this.currentQuarterData.records.filter((letter: any) => {
-      const _letter = Object.assign({}, letter);
-      _letter.data = _letter.data.filter((contact) => contact.name.toLowerCase().includes(value));
-      return _letter ? !!_letter.data.length : false;
+    this.filteredContacts = _.cloneDeep(this.currentQuarterData.records).filter((letter: any) => {
+      letter.data = letter.data.filter((contact) => contact.name.toLowerCase().includes(value));
+      return !!letter.data.length ? true : false;
     });
   }
 
