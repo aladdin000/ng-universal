@@ -19,7 +19,6 @@ import { IQuarterData } from './interfaces/quarted-data.interface';
 
 /* Models */
 import { Contact } from '../../../../../../models/contact';
-import { ScrollEvent } from 'ngx-scroll-event';
 
 @Component({
   templateUrl: './quarter.page.html',

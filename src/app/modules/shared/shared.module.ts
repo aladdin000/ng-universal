@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
-import { ScrollEventModule } from 'ngx-scroll-event';
 
 import { WindowRefProvider } from './providers/window-ref.provider';
 import { ScrollService } from './services/scroll.service';
@@ -25,7 +24,6 @@ import {
     ModalModule.forRoot(),
     CarouselModule.forRoot(),
     NgxPageScrollModule,
-    ScrollEventModule,
   ],
   declarations: [
     ConversationComponent,
@@ -44,7 +42,6 @@ import {
     CarouselModule,
     ModalModule,
     NgxPageScrollModule,
-    ScrollEventModule,
     ConversationComponent,
     GemComponent,
     LineTitleComponent,
