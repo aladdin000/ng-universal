@@ -24,12 +24,27 @@
 
     <div class="row scroller">
       <div class="col-sm-5">
+        <div class="letters-nav-wrapper" affexScroll [offset]="75">
+          <app-gem
+            class="gem-table"
+            type="gem-table"
+            colorType="light-blue"
+          ></app-gem>
+          <ul class="letters-nav">
+            <li [ngClass]="{'active' : linkId === 1}"><a pageScroll [href]="generateHref('a', 'd')" (pageScrollFinish)="changeActiveLink(1)">A - D</a></li>
+            <li [ngClass]="{'active' : linkId === 2}"><a pageScroll [href]="generateHref('e', 'h')" (pageScrollFinish)="changeActiveLink(2)">E - H</a></li>
+            <li [ngClass]="{'active' : linkId === 3}"><a pageScroll [href]="generateHref('i', 'l')" (pageScrollFinish)="changeActiveLink(3)">I - L</a></li>
+            <li [ngClass]="{'active' : linkId === 4}"><a pageScroll [href]="generateHref('m', 'p')" (pageScrollFinish)="changeActiveLink(4)">M - P</a></li>
+            <li [ngClass]="{'active' : linkId === 5}"><a pageScroll [href]="generateHref('q', 'z')" (pageScrollFinish)="changeActiveLink(5)">Q - Z</a></li>
+          </ul>
+        </div>
 
+        
       </div>
       <div class="col-sm-7">
-        <ng-container *ngIf="contacts">
-          <ul *ngFor="let item of contacts" class="letters">
-            <h3 class="letter" [id]="item.letter">{{ item.letter | uppercase }}</h3>
+        <ng-container *ngIf="filteredContacts">
+          <ul *ngFor="let item of filteredContacts" class="letters">
+            <h3 class="letter" [id]="'letter-' + item.letter">{{ item.letter | uppercase }}</h3>
             <hr>
             <div class="names">
               <li *ngFor="let contact of item.data">{{ contact.name }}</li>

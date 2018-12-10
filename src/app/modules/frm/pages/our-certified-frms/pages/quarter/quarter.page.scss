@@ -192,6 +192,90 @@
         margin-top: 0;
         padding: 8px 12px;
     }
+
+    @media(max-width: 767px) {
+        background-color: #081a31;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        z-index: 1001;
+        padding: 5px 15px;
+
+        input[type="text"] {
+            width: 100%;
+        }
+
+        button {
+            display: none;
+        }
+    }
+}
+
+.gem-table {
+    position: absolute;
+    left: 10px;
+    top: -8.5px;
+    z-index: 16;
+}
+
+.letters-nav-wrapper {
+    position: relative;
+
+    @media(max-width: 767px) {
+        display: none;
+    }
+}
+.letters-nav {
+    background-color: #fff;
+    color: #00a2dd;
+    border: 1px solid #00a2dd;
+    position: relative;
+    cursor: pointer;
+    font-weight: 600;
+    max-width: 426px;
+    margin-top: 1px;
+
+    li {
+        border-top: 1px solid #00a2dd;
+        margin: 0;
+        font-size: 1em;
+        list-style-type: none;
+        transition: 0;
+
+        &:first-child {
+            border-top: 0 solid #00a2dd;
+        }
+
+        a {
+            padding: .6rem 1.25rem;
+            display: block;
+            font-size: .9rem;
+            color: #00a2dd;
+            transition: 0;
+        }
+        &.active, &:hover {
+            a {
+                color: white;
+                text-decoration: none;
+            }
+            background-color: rgba(0,162,221,0.5);
+        }
+    }
+}
+.affex-nav {
+    position: fixed;
+    top: 100px;
+    width: 100%;
+    z-index: 15;
+    max-width: 426px;
+
+    @media(max-width: 991px) {
+        max-width: 35%;
+    }
 }
 
 @include common-footer;
+.footer {
+    margin-top: 200px;
+}

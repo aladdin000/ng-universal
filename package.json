@@ -52,6 +52,8 @@
     "moment-timezone": "^0.5.23",
     "mongoose": "^4.13.11",
     "ngx-bootstrap": "^3.0.1",
+    "ngx-page-scroll": "^5.0.1",
+    "ngx-scroll-event": "^1.0.8",
     "node-gcm": "^1.0.2",
     "redis": "^2.8.0",
     "request": "^2.83.0",
