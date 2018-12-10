@@ -15,6 +15,11 @@ const programAndExams = {
   description: 'Global Association of Risk Professionals | The Only Globally Recognized Membership Association for Risk Managers',
 };
 
+const ourCertifiedFrms = {
+  title: 'Newly Certifieds | GARP',
+  description: 'Global Association of Risk Professionals | The Only Globally Recognized Membership Association for Risk Managers',
+};
+
 export const FRM_META: IMetaObject = Object.freeze({
   overview: {
     title: overview.title,
@@ -48,5 +53,14 @@ export const FRM_META: IMetaObject = Object.freeze({
     twitter: {
       ...programAndExams,
     }
+  },
+  ourCertifiedFrms: {
+    ...ourCertifiedFrms,
+    og: {
+      ...ourCertifiedFrms,
+    },
+    twitter: {
+      ...ourCertifiedFrms,
+    },
   }
 });

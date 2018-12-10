@@ -11,6 +11,8 @@ import {
   FrmPage,
   OverviewPage,
   ProgramAndExamsPage,
+  OurCertifiedFrmsPage,
+  QuarterPage,
 } from './pages';
 
 import {
@@ -31,6 +33,8 @@ import {
     FrmPage,
     OverviewPage,
     ProgramAndExamsPage,
+    OurCertifiedFrmsPage,
+    QuarterPage,
     HeroBoxOverviewComponent,
     HeroBoxOverviewModal,
   ],

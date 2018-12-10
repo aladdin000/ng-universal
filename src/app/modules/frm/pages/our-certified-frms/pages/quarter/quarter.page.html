@@ -1,0 +1,62 @@
+<div class="wrapper">
+  <app-line-title [title]="currentQuarterData?.title" [type]="lineTitleTypes.frm" gemColor="light-blue" sizeType="s"></app-line-title>
+  <div class="section-main">
+    <div class="row">
+      <div class="col-sm-5">
+        <h2 class="common-title common-left">
+          Congratulations
+        </h2>
+      </div>
+      <div class="col-sm-7 common-right">
+        <p class="common-text">
+          Congratulations to our most recently certified FRMs. The following lists contain the names of individuals that have passed
+          both parts of the FRM Exam and have demonstrated a minimum of two years of full-time professional experience related
+          to financial risk management. They are now certified FRMs, with all of the rights and responsibilities that come
+          with holding this professional designation.
+        </p>
+        <div class="search">
+          <input type="text" ([ngModel])="search" placeholder="Type name here" id="searchInput" (input)="onSearch($event)" />
+          <label for="searchInput">Search Certifieds</label>
+          <button class="common-button">Search</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row scroller">
+      <div class="col-sm-5">
+        <div class="letters-nav-wrapper" affexScroll [offset]="75">
+          <app-gem
+            class="gem-table"
+            type="gem-table"
+            colorType="light-blue"
+          ></app-gem>
+          <ul class="letters-nav">
+            <li [ngClass]="{'active' : linkId === 1}"><a pageScroll [href]="generateHref('a', 'd')" (pageScrollFinish)="changeActiveLink(1)">A - D</a></li>
+            <li [ngClass]="{'active' : linkId === 2}"><a pageScroll [href]="generateHref('e', 'h')" (pageScrollFinish)="changeActiveLink(2)">E - H</a></li>
+            <li [ngClass]="{'active' : linkId === 3}"><a pageScroll [href]="generateHref('i', 'l')" (pageScrollFinish)="changeActiveLink(3)">I - L</a></li>
+            <li [ngClass]="{'active' : linkId === 4}"><a pageScroll [href]="generateHref('m', 'p')" (pageScrollFinish)="changeActiveLink(4)">M - P</a></li>
+            <li [ngClass]="{'active' : linkId === 5}"><a pageScroll [href]="generateHref('q', 'z')" (pageScrollFinish)="changeActiveLink(5)">Q - Z</a></li>
+          </ul>
+        </div>
+
+        
+      </div>
+      <div class="col-sm-7">
+        <ng-container *ngIf="filteredContacts">
+          <ul *ngFor="let item of filteredContacts" class="letters">
+            <h3 class="letter" [id]="'letter-' + item.letter">{{ item.letter | uppercase }}</h3>
+            <hr>
+            <div class="names">
+              <li *ngFor="let contact of item.data">{{ contact.name }}</li>
+            </div>
+          </ul>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-angle"></div>
+    <app-gem class="footer-gem" type="gem-footer" colorType="light-blue"></app-gem>
+  </div>
+</div>

@@ -8,7 +8,11 @@ module.exports = {
     server: './server.ts',
   },
   target: 'node',
-  externals: [nodeExternals()],
+  externals: [nodeExternals({
+    whitelist: [
+      /^ngx-page-scroll/,
+    ]
+  })],
   resolve: { extensions: ['.ts', '.js'] },
   optimization: {
     minimize: false,
