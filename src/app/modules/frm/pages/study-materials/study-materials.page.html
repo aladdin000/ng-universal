@@ -193,8 +193,8 @@
 </div>
 
 <ng-template #buttons let-item='item'>
-  <p *ngIf="item.product.unitPrice" class="margin-top-2rem">
-      Cost: USD {{ item.product.unitPrice }}, plus shipping.
+  <p *ngIf="item.product?.unitPrice" class="margin-top-2rem">
+      Cost: USD {{ item.product?.unitPrice }}, plus shipping.
   </p>
   <div >
     <a *ngIf="isProductAvailable(item)" [href]="deepLink + 'study_materials'" target="_blank" class="common-button">PURCHASE</a>

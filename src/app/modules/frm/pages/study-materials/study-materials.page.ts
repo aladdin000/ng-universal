@@ -64,9 +64,7 @@ export class StudyMaterialsPage extends MetaHelper implements OnInit {
         flatMap(response => this.getNextMaterialsIfCurrentIsEndOfLife(response)),
         flatMap(response => this.initNextActiveStudyMaterials(response)),
       )
-      .subscribe((examInfo: any) => {
-        console.log(this.learningObjectives);
-      }, (err) => console.log(err));
+      .subscribe((examInfo: any) => {}, (err) => console.log(err));
 
     this.deepLink = `https://${LINKS.DEEP_LINK}/Login?start=`;
   }
