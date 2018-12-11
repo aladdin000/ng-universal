@@ -15,6 +15,7 @@ import { MetaHelper } from 'src/app/modules/shared/helpers/meta.helper';
 /* Services */
 import { ExamService, IExamInfo, UtilitiesService, StudyMaterialsService, StudyTopicsService } from '../../../../services';
 import { ExamMonth } from 'src/app/modules/shared/enums/exam-month.enum';
+import { LINKS } from '../../../shared/enums/links.enum';
 
 @Component({
   templateUrl: './study-materials.page.html',
@@ -36,6 +37,8 @@ export class StudyMaterialsPage extends MetaHelper implements OnInit {
   public nextActiveMaterialsExamInfo: any;
   public nextActiveMaterialsExamYear: any;
   public learningObjectives: any;
+  public deepLink;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -60,9 +63,10 @@ export class StudyMaterialsPage extends MetaHelper implements OnInit {
         flatMap(response => this.initNextActiveStudyMaterials(response)),
       )
       .subscribe((examInfo: any) => {
-        console.log('test');
-        console.log(this.learningObjectives, this.studyGuides, this.books, this.eBooks, this.practiceExams);
+        console.log(this.learningObjectives);
       }, (err) => console.log(err));
+
+    this.deepLink = `https://${LINKS.DEEP_LINK}/Login?start=`;
   }
 
   private makeStudyMaterialCall(examInfoResponse) {
@@ -166,5 +170,37 @@ export class StudyMaterialsPage extends MetaHelper implements OnInit {
         scope[i].gaLabel = labeltwo;
       }
     }
+  }
+
+  public isBeforeDate(dateString) {
+    return this.utilitiesService.isBeforeDate(dateString);
+  }
+
+  public isAfterDate(dateString) {
+    return this.utilitiesService.isAfterDate(dateString);
+  }
+
+  public isProductAvailable(item) {
+    return this.studyMaterialsService.isProductAvailable(item);
+  }
+
+  public isProductComingSoonPeriod(item) {
+    return this.studyMaterialsService.isProductComingSoonPeriod(item);
+  }
+
+  public isProductOutOfStock(item) {
+    return this.studyMaterialsService.isProductOutOfStock(item);
+  }
+
+  public isProductPreorderPeriod(item) {
+    return this.studyMaterialsService.isProductPreorderPeriod(item);
+  }
+
+  public isPlural (str) {
+    if (!this.utilitiesService.defined(str) || typeof str !== 'string') {
+      return false;
+    }
+
+    return str.slice(-1) === 's';
   }
 }

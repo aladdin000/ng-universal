@@ -10,6 +10,7 @@ import {
   ProgramAndExamsPage,
   OurCertifiedFrmsPage,
   QuarterPage,
+  StudyMaterialsPage,
 } from './pages';
 
 const routes: Routes = [
@@ -41,6 +42,11 @@ const routes: Routes = [
         path: 'our-certified-frms/:id',
         component: QuarterPage,
         data: { meta: FRM_META.ourCertifiedFrms },
+      },
+      {
+        path: 'study-materials',
+        component: StudyMaterialsPage,
+        data: { meta: FRM_META.studyMaterials },
       }
     ],
   }

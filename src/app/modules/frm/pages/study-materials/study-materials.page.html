@@ -1,3 +1,93 @@
 <div class="wrapper">
   <app-line-title title="FRM study materials" [type]="lineTitleTypes.frm" gemColor="light-blue" sizeType="s"></app-line-title>
-</div>      
+
+  <div class="section-main">
+    <div class="row">
+      <div class="col-sm-5">
+        <h2 class="common-title common-left">
+            Preparing for the <br/>FRM Exam
+        </h2>
+      </div>
+      <div class="col-sm-7">
+        <p class="common-text">
+          To help candidates prepare for the FRM Exam, GARP provides study materials, practice exams, and information on approved, third-party Exam preparation providers. The following official resources are available to help candidates prepare for both parts of the FRM Exam:
+        </p>
+      </div>
+    </div>
+
+    <div class="row study-wrapper">
+      <div class="col-sm-5"></div>
+      <div class="col-sm-7">
+        <div class="book-wrapper" *ngIf="learningObjectives">
+          <h3>{{ learningObjectives.Name }}</h3>
+          <h4 class="margin-top-2rem">Last updated: {{ learningObjectives.Published_Date__c | date: 'longDate' }}</h4>
+          <img class="margin-top-2rem" [src]="learningObjectives.Image__c">
+          <p class="margin-top-2rem" [innerHtml]="learningObjectives.Story__c || learningObjectives.Description__c"></p>
+          <a target="_blank" *ngIf="isAfterDate(learningObjectives.Start_Date__c) && learningObjectives.Third_Party_URL__c" [href]="learningObjectives.Third_Party_URL__c" class="common-button">Download</a>
+          <a target="_blank" *ngIf="isBeforeDate(learningObjectives.Start_Date__c) && learningObjectives.Lead_Gen_URL__c" [href]="learningObjectives.Third_Party_URL__c" class="common-button">Notify me when the {{learningObjectives.Name}} are available</a>
+        </div>
+
+        <div class="book-wrapper guide margin-top-7rem" *ngFor="let item of studyGuides | orderBy: 'Content_Name__c' ">
+          <div class="row">
+            <div class="col-sm-12">
+              <h3>{{ item.Content_Name__c }}</h3>
+            </div>
+            <div class="col-sm-5">
+              <img class="margin-top-2rem" [src]="item.Image__c">
+            </div>
+            <div class="col-sm-7">
+              <p class="margin-top-2rem" [innerHtml]="item.Story__c || item.Description__c"></p>
+              <a target="_blank" *ngIf="isAfterDate(item.Start_Date__c) && item.Third_Party_URL__c" [href]="item.Third_Party_URL__c" class="common-button">Download</a>
+              <a target="_blank" *ngIf="isBeforeDate(item.Start_Date__c) && item.Lead_Gen_URL__c" [href]="item.Third_Party_URL__c" class="common-button">Notify me when the {{learningObjectives.Name}} are available</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="book-wrapper guide margin-top-7rem" *ngFor="let item of books | orderBy: 'Content_Name__c' ">
+          <div class="row">
+            <div class="col-sm-12">
+              <h3>{{ item.Content_Name__c }}</h3>
+            </div>
+            <div class="col-sm-5">
+              <img class="margin-top-2rem" [src]="item.Image__c">
+            </div>
+            <div class="col-sm-7">
+                <ng-container *ngTemplateOutlet="buttons;context: { item: item }"></ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+
+<ng-template #buttons let-item='item'>
+  <p class="margin-top-2rem" [innerHtml]="item.Story__c || item.Description__c"></p>
+  <p *ngIf="item.product.unitPrice">
+      Cost: USD {{ item.product.unitPrice }}, plus shipping.
+  </p>
+  <div>
+    <a *ngIf="isProductAvailable(item)" [href]="deepLink+ 'study_materials'" >PURCHASE</a>
+    <p *ngIf="isAfterDate(item.Start_Date__c) && isProductOutOfStock(item)" style='color:red;'>Currently out of stock. Please check back later.</p>
+    <p *ngIf="isProductComingSoonPeriod(item)">
+      <a [href]="item.Lead_Gen_URL__c" target="_blank">
+        Notify me when the {{item.Name}} 
+        <span *ngIf="!isPlural(item.Name)">is</span> 
+        <span *ngIf="isPlural(item.Name)">are</span> 
+        available
+      </a>
+    </p>
+    <!-- Product Pre-order is available -->
+    <p *ngIf="isProductPreorderPeriod(item)">
+      <a [href]="deepLink+ 'study_materials'">Pre-order the {{item.Name}}</a>
+    </p>
+    <p *ngIf="isNearStudyMaterialsEndOfLife && item.nextActiveItem.Lead_Gen_URL__c">
+        <a [href]="item.nextActiveItem.Lead_Gen_URL__c" target="_blank">
+            Notify me when the {{ item.nextActiveItem.Name }} 
+            <span *ngIf="!isPlural(item.nextActiveItem.Name)">is</span>
+            <span *ngIf="isPlural(item.nextActiveItem.Name)">are</span>
+            available
+        </a>
+    </p>
+  </div>
+</ng-template>

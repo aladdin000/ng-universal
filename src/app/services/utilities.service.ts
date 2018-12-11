@@ -66,4 +66,12 @@ export class UtilitiesService {
         }
         return true;
     }
+
+    public isBeforeDate(dateString) {
+        return this.timeUntilDateTime(dateString) > 0;
+    }
+
+    public isAfterDate(dateString) {
+        return this.timeUntilDateTime(dateString) <= 0;
+    }
 }

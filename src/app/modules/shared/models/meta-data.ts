@@ -23,5 +23,5 @@ export interface IMetaData {
 }
 
 export interface IMetaObject {
-  [key: string] : IMetaData;
+  [key: string]: IMetaData;
 }

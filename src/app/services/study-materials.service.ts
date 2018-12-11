@@ -74,4 +74,58 @@ export class StudyMaterialsService {
       return false;
     }
   }
+
+  public isProductAvailable(item) {
+    if (!this.utilitiesService.defined(item, 'product')) {
+      return false;
+    }
+
+    try {
+      return this.utilitiesService.isAfterDate(item.Start_Date__c) && !this.isProductOutOfStock(item);
+    } catch (e) {
+      console.log("Error in isProductAvailable: ", e);
+      return false;
+    }
+  }
+
+  public isProductOutOfStock(item) {
+    if (!this.utilitiesService.defined(item, 'product.Inventory__c')) {
+      return false;
+    }
+
+    try {
+      return item.product.Inventory__c <= 0;
+    } catch (e) {
+      console.log("Error in isProductOutOfStock: ", e);
+      return false;
+    }
+  }
+
+  public isProductComingSoonPeriod(item) {
+    if (!this.utilitiesService.defined(item, 'product')) {
+      return true;
+    }
+
+    try {
+      return (!this.utilitiesService.defined(item, 'product.Pre_Order_Date__c') ||
+      this.utilitiesService.isBeforeDate(item.product.Pre_Order_Date__c)) &&
+      this.utilitiesService.isBeforeDate(item.Start_Date__c);
+    } catch (e) {
+      console.log("Error in isProductComingSoonPeriod: ", e);
+      return false;
+    }
+  }
+
+  public isProductPreorderPeriod(item) {
+    if (!this.utilitiesService.defined(item, 'product.Pre_Order_Date__c')) {
+      return false;
+    }
+
+    try {
+      return this.utilitiesService.isAfterDate(item.product.Pre_Order_Date__c) && this.utilitiesService.isBeforeDate(item.Start_Date__c);
+    } catch (e) {
+      console.log("Error in isProductPreorderPeriod: ", e);
+      return false;
+    }
+  }
 }
