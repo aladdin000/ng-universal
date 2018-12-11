@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
@@ -16,17 +16,19 @@ import { MetaHelper } from 'src/app/modules/shared/helpers/meta.helper';
 import { ExamService, IExamInfo, UtilitiesService, StudyMaterialsService, StudyTopicsService } from '../../../../services';
 import { ExamMonth } from 'src/app/modules/shared/enums/exam-month.enum';
 import { LINKS } from '../../../shared/enums/links.enum';
+import { EXAM_TYPE } from 'src/app/modules/shared/enums/exam-type.enum';
 
 @Component({
   templateUrl: './study-materials.page.html',
   styleUrls: ['./study-materials.page.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class StudyMaterialsPage extends MetaHelper implements OnInit {
   public lineTitleTypes = LINE_TITLE_TYPES;
   public examInfo: any;
   public activeMaterialsExamInfo: any;
   public activeMaterialsExamYear: any;
-  public exam = 'FRM';
+  public exam = EXAM_TYPE.FRM;
   public showStudyModuleLeadGen: any;
   public showFreeReadingLeadGen: any;
   public studyGuides: any;
@@ -162,6 +164,26 @@ export class StudyMaterialsPage extends MetaHelper implements OnInit {
     }
   }
 
+  public getFreeReadingsLeadGenUrl(examInfo) {
+    if (!this.utilitiesService.defined(examInfo)) {
+      return '';
+    }
+
+    return (this.exam === EXAM_TYPE.FRM) ?
+      examInfo.FRM_Free_Reading_Lead_Gen_URL__c :
+      examInfo.ERP_Free_Reading_Lead_Gen_URL__c;
+  }
+
+  public getModulesLeadGenUrl(examInfo) {
+    if (!this.utilitiesService.defined(examInfo)) {
+      return '';
+    }
+
+    return (this.exam === EXAM_TYPE.FRM) ?
+      examInfo.FRM_Study_Module_Lead_Gen_URL__c :
+      examInfo.ERP_Study_Module_Lead_Gen_URL__c;
+  }
+
   private createGaLabels(scope, keyword, labelone, labeltwo) {
     for (let i = 0; i < scope.length; i++) {
       if (scope[i].Name.indexOf(keyword) > -1) {
@@ -192,11 +214,15 @@ export class StudyMaterialsPage extends MetaHelper implements OnInit {
     return this.studyMaterialsService.isProductOutOfStock(item);
   }
 
+  public isProductDigital(item) {
+    return this.studyMaterialsService.isProductDigital(item);
+  }
+
   public isProductPreorderPeriod(item) {
     return this.studyMaterialsService.isProductPreorderPeriod(item);
   }
 
-  public isPlural (str) {
+  public isPlural(str) {
     if (!this.utilitiesService.defined(str) || typeof str !== 'string') {
       return false;
     }

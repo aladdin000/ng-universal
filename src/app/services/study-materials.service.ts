@@ -128,4 +128,17 @@ export class StudyMaterialsService {
       return false;
     }
   }
+
+  public isProductDigital(item) {
+    if (!this.utilitiesService.defined(item, 'product.Electronic_Delivery__c')) {
+      return false;
+    }
+
+    try {
+      return item.product.Electronic_Delivery__c;
+    } catch (e) {
+      console.log("Error in isProductDigital: ", e);
+      return false;
+    }
+  }
 }

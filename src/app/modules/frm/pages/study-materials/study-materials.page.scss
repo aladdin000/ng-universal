@@ -117,21 +117,92 @@
     }
 }
 
-.margin-top-0 {
-    margin-top: 0;
-  }
-  .margin-top-1rem {
-    margin-top: 1rem;
-  }
-  .margin-top-2rem {
+
+
+.bullets-colored  {
+  ul {
     margin-top: 2rem;
   }
-  .margin-top-5rem {
-    margin-top: 5rem;
+  li {
+    position: relative;
+    padding-left: 32px;
+    font-size: 1em;
+    list-style-type: none;
   }
-  .margin-top-7rem {
-    margin-top: 7rem;
+  li:before {
+    display: block;
+    font-size: 1.75rem;
+    position: absolute;
+    left: 0px;
+    top: -10px;
+    content: "\2022";
+    color: #E0EAEB;
   }
-  .maxw180 {
-    max-width: 180px;;
+  &-blue {
+    li:nth-child(4n + 1):before {
+      color: #00a2dd;
+    }
+    li:nth-child(4n + 2):before {
+      color: #006c99;
+    }
+    li:nth-child(4n + 3):before {
+      color: #f05123;
+    }
+    li:nth-child(4n + 4):before {
+      color: #c44826;
+    } 
   }
+  &-green {
+    li:nth-child(4n + 1):before {
+      color: #b8258f;
+    }
+    li:nth-child(4n + 2):before {
+      color: #7f236e;
+    }
+    li:nth-child(4n + 3):before {
+      color: #b0c636;
+    }
+    li:nth-child(4n + 4):before {
+      color: #849c3a;
+    } 
+  }
+}
+
+.margin-top-0 {
+  margin-top: 0;
+}
+.margin-top-1rem {
+  margin-top: 1rem;
+}
+.margin-top-2rem {
+  margin-top: 2rem;
+}
+.margin-top-5rem {
+  margin-top: 5rem;
+}
+.margin-top-7rem {
+  margin-top: 7rem;
+}
+.maxw180 {
+  max-width: 180px;;
+}
+
+@include common-footer;
+.footer {
+  margin-top: 0;
+}
+
+@media(max-width: 767px) {
+  .common-text {
+    font-size: 14px;
+  }
+  .book-wrapper h3 {
+    font-size: 1.2rem;
+  }
+  .common-button {
+    width: 100%;
+  }
+  .footer {
+    padding-top: 8rem;
+  }
+}
