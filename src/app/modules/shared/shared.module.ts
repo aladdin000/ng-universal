@@ -18,6 +18,25 @@ import {
   PriceBoxComponent,
 } from './components';
 
+import { OrderByPipe } from './pipes';
+
+const directives: any[] = [
+  AffexScrollDirective,
+];
+
+const pipes: any[] = [
+  OrderByPipe,
+];
+
+const components: any[] = [
+  ConversationComponent,
+  GemComponent,
+  LineTitleComponent,
+  PlanBoxComponent,
+  SlideComponent,
+  PriceBoxComponent,
+];
+
 @NgModule({
   imports: [
     CommonModule,
@@ -26,13 +45,9 @@ import {
     NgxPageScrollModule,
   ],
   declarations: [
-    ConversationComponent,
-    GemComponent,
-    PlanBoxComponent,
-    LineTitleComponent,
-    SlideComponent,
-    PriceBoxComponent,
-    AffexScrollDirective,
+    ...components,
+    ...directives,
+    ...pipes,
   ],
   providers: [
     WindowRefProvider,
@@ -42,13 +57,9 @@ import {
     CarouselModule,
     ModalModule,
     NgxPageScrollModule,
-    ConversationComponent,
-    GemComponent,
-    LineTitleComponent,
-    PlanBoxComponent,
-    SlideComponent,
-    PriceBoxComponent,
-    AffexScrollDirective,
+    ...components,
+    ...directives,
+    ...pipes,
   ],
 })
 export class SharedModule {}

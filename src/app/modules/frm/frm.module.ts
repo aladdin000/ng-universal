@@ -13,6 +13,7 @@ import {
   ProgramAndExamsPage,
   OurCertifiedFrmsPage,
   QuarterPage,
+  StudyMaterialsPage,
 } from './pages';
 
 import {
@@ -35,6 +36,7 @@ import {
     ProgramAndExamsPage,
     OurCertifiedFrmsPage,
     QuarterPage,
+    StudyMaterialsPage,
     HeroBoxOverviewComponent,
     HeroBoxOverviewModal,
   ],

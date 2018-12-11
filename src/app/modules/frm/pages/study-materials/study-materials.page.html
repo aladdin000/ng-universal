@@ -1,0 +1,223 @@
+<div class="wrapper">
+  <app-line-title title="FRM study materials" [type]="lineTitleTypes.frm" gemColor="light-blue" sizeType="s"></app-line-title>
+
+  <div class="section-main">
+    <div class="row">
+      <div class="col-sm-5">
+        <h2 class="common-title common-left">
+            Preparing for the <br/>FRM Exam
+        </h2>
+      </div>
+      <div class="col-sm-7">
+        <p class="common-text">
+          To help candidates prepare for the FRM Exam, GARP provides study materials, practice exams, and information on approved, third-party Exam preparation providers. The following official resources are available to help candidates prepare for both parts of the FRM Exam:
+        </p>
+      </div>
+    </div>
+
+    <div class="row study-wrapper">
+      <div class="col-sm-5"></div>
+      <div class="col-sm-7">
+        <div class="book-wrapper" *ngIf="learningObjectives">
+          <h3>{{ learningObjectives.Name }}</h3>
+          <h4 class="margin-top-2rem">Last updated: {{ learningObjectives.Published_Date__c | date: 'longDate' }}</h4>
+          <img class="margin-top-2rem" [src]="learningObjectives.Image__c">
+          <p class="margin-top-2rem" [innerHtml]="learningObjectives.Story__c || learningObjectives.Description__c"></p>
+          <a target="_blank" *ngIf="isAfterDate(learningObjectives.Start_Date__c) && learningObjectives.Third_Party_URL__c" [href]="learningObjectives.Third_Party_URL__c" class="common-button">Download</a>
+          <a target="_blank" *ngIf="isBeforeDate(learningObjectives.Start_Date__c) && learningObjectives.Lead_Gen_URL__c" [href]="learningObjectives.Third_Party_URL__c" class="common-button">Notify me when the {{learningObjectives.Name}} are available</a>
+        </div>
+
+        <div class="book-wrapper guide margin-top-7rem" *ngFor="let item of studyGuides | orderBy: 'Content_Name__c' ">
+          <div class="row">
+            <div class="col-sm-12">
+              <h3>{{ item.Content_Name__c }}</h3>
+            </div>
+            <div class="col-sm-5">
+              <img class="margin-top-2rem" [src]="item.Image__c">
+            </div>
+            <div class="col-sm-7">
+              <p class="margin-top-2rem" [innerHtml]="item.Story__c || item.Description__c"></p>
+              <a target="_blank" *ngIf="isAfterDate(item.Start_Date__c) && item.Third_Party_URL__c" [href]="item.Third_Party_URL__c" class="common-button">Download</a>
+              <a target="_blank" *ngIf="isBeforeDate(item.Start_Date__c) && item.Lead_Gen_URL__c" [href]="item.Third_Party_URL__c" class="common-button">Notify me when the {{learningObjectives.Name}} are available</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="book-wrapper guide margin-top-7rem" *ngFor="let item of books | orderBy: 'Content_Name__c'; let i = index  ">
+          <div class="row">
+            <div class="col-sm-12">
+              <h3>{{ item.Content_Name__c }}</h3>
+            </div>
+            <div class="col-sm-5">
+              <img class="margin-top-2rem" [src]="item.Image__c">
+            </div>
+            <div class="col-sm-7">
+                <p [class]="'margin-top-2rem bullets-colored ' + (i === 0 ? 'bullets-colored-blue' : i === 1 ? 'bullets-colored-green' : 'bullets-colored-blue')" [innerHtml]="item.Story__c || item.Description__c"></p>
+                <ng-container *ngTemplateOutlet="buttons;context: { item: item }"></ng-container>
+            </div>
+          </div>
+        </div>
+
+        <div class="book-wrapper guide margin-top-7rem" *ngFor="let item of eBooks | orderBy: 'Content_Name__c'; let i = index  ">
+            <div class="row">
+              <div class="col-sm-12">
+                <h3>{{ item.Content_Name__c }}</h3>
+              </div>
+              <div class="col-sm-5">
+                <img class="margin-top-2rem" [src]="item.Image__c">
+              </div>
+              <div class="col-sm-7">
+                  <p [class]="'margin-top-2rem bullets-colored ' + (i === 0 ? 'bullets-colored-blue' : i === 1 ? 'bullets-colored-green' : 'bullets-colored-blue')" [innerHtml]="item.Story__c || item.Description__c"></p>
+                  <ng-container *ngTemplateOutlet="buttons;context: { item: item }"></ng-container>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-5">
+        <h2 class="common-title common-left">
+          Required readings
+        </h2>
+      </div>
+      <div class="col-sm-7">
+        <p class="common-text">
+          In addition to the information contained in the books, the FRM Exam covers a selection of material from leading academies and practitioners. These online readings are a required part of the FRM curriculum.
+        </p>
+        <a routerLink="/frm/readings/required" class="common-button">View Readings</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-5">
+        <h2 class="common-title common-left">
+          Optional regulatory <br/>
+          readings
+        </h2>
+      </div>
+      <div class="col-sm-7">
+        <p class="common-text">
+          These additional readings contain the full text of some Basel regulations covered in the FRM curriculum. While not required, these readings provide additional indights into the context and mechanics of the Basel regulations and are therefore highly recommended.
+        </p>
+        <a routerLink="/frm/readings/optional" class="common-button">View Readings</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-5">
+        <h2 class="common-title common-left">
+          Study modules
+        </h2>
+      </div>
+      <div class="col-sm-7">
+        <p class="common-text">
+          As you prepare for the FRM Exam, we will be highlighting modules that appear on the Exam to help you pace yourself through the exam material. These modules directly correspond to the FRM Study Guide and to the related readings in the official FRM books.
+        </p>
+        <!-- <a *ngIf="!showFreeReadingLeadGen" routerLink="/frm/readings/" class="common-button">Readings</a>
+        <a *ngIf="showFreeReadingLeadGen" target="_blank" [href]="getFreeReadingsLeadGenUrl(activeMaterialsExamInfo)" class="common-button" >Notify me when the {{ activeMaterialsExamYear }} readings are available</a> -->
+        <br />
+        <a *ngIf="!showStudyModuleLeadGen" routerLink="/frm/study-materials" class="common-button">Sample Study Modules</a>
+        <a *ngIf="showStudyModuleLeadGen" target="_blank" [href]="getModulesLeadGenUrl(activeMaterialsExamInfo)" class="common-button" >Notify me when available</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-5">
+        <h2 class="common-title common-left">
+          FRM practice <br/>
+          exams
+        </h2>
+      </div>
+      <div class="col-sm-7">
+        <p class="common-text">
+          Practice exams provide a good sense of the question types they will encounter when sitting for the FRM Exam, and allow you to estimate how much time you can expect to spend answering individual questions. Free for paid FRM candidates, they are an ideal way to gauge how well prepared you are for the FRM Exams. Each practice exam file includes candidate answer sheets, exam questions, exam answer keys, and detailed explanations for all answers.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-5"></div>
+      <div class="col-sm-7">
+          <div class="book-wrapper guide margin-top-7rem" *ngFor="let item of practiceExams | orderBy: 'Content_Name__c' ">
+            <div class="row">
+              <div class="col-sm-12">
+                <h3>{{ item.Content_Name__c }}</h3>
+              </div>
+              <div class="col-sm-5">
+                <img class="margin-top-2rem" [src]="item.Image__c">
+              </div>
+              <div class="col-sm-7">
+                <p class="margin-top-2rem" [innerHtml]="item.Story__c || item.Description__c"></p>
+                <a *ngIf="isProductAvailable(item) && isProductDigital(item)" target="_blank" [href]="deepLink + 'study_materials'" class="common-button">DOWNLOAD</a>
+                <a *ngIf="isProductAvailable(item) && !isProductDigital(item)" target="_blank" [href]="deepLink + 'study_materials'" class="common-button">PURCHASE</a>
+                <p *ngIf="isAfterDate(item.Start_Date__c) && isProductOutOfStock(item)" style='color:red;'>Currently out of stock. Please check back later.</p>
+                
+                <a *ngIf="isProductComingSoonPeriod(item) && item.Lead_Gen_URL__c" [href]="item.Lead_Gen_URL__c" target="_blank"  class="common-button">Notify me when available</a>
+
+                <p *ngIf="isProductComingSoonPeriod(item) && !item.Lead_Gen_URL__c">Currently not available. Please check back later.</p>
+                
+                <p *ngIf="isProductPreorderPeriod(item)">
+                  <a target="_blank" [href]="deepLink + 'study_materials'" class="common-button">Pre-order the {{item.Name}}</a>
+                </p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-5">
+        <h2 class="common-title common-left">
+          Exam preparation <br/>
+          providers
+        </h2>
+      </div>
+      <div class="col-sm-7">
+        <p class="common-text">
+          Some candidates for the FRM Exam may wish to study the Exam material with the assistance of an FRM Exam preparation provider. Exam preparation providers may offer courses online or in person. GARP provides FRM candidates with a list of providers on its website as a service to them. Please note that GARP does not endorse, promote, review or warrant the accuracy of the products or services offered by Exam preparation providers of FRM-related information, nor does it endorse any pass rates claimed by the Exam preparation provider. Further, GARP is not responsible for any fees or costs paid by the user to an FRM Exam preparation provider.
+        </p>
+        <a routerLink="/frm/exam-preparation-providers" class="common-button">Exam Preparation Providers</a>
+      </div>
+    </div>
+
+  </div>
+</div>  
+<div class="footer">
+  <div class="footer-angle"></div>
+  <app-gem
+    class="footer-gem"
+    type="gem-footer"
+    colorType="light-blue"
+  ></app-gem>
+</div>
+
+<ng-template #buttons let-item='item'>
+  <p *ngIf="item.product?.unitPrice" class="margin-top-2rem">
+      Cost: USD {{ item.product?.unitPrice }}, plus shipping.
+  </p>
+  <div >
+    <a *ngIf="isProductAvailable(item)" [href]="deepLink + 'study_materials'" target="_blank" class="common-button">PURCHASE</a>
+    <p *ngIf="isAfterDate(item.Start_Date__c) && isProductOutOfStock(item)" style='color:red;'>Currently out of stock. Please check back later.</p>
+    <p *ngIf="isProductComingSoonPeriod(item)">
+      <a [href]="item.Lead_Gen_URL__c" target="_blank" class="common-button">
+        Notify me when the {{item.Name}} 
+        <span *ngIf="!isPlural(item.Name)">is</span> 
+        <span *ngIf="isPlural(item.Name)">are</span> 
+        available
+      </a>
+    </p>
+    <!-- Product Pre-order is available -->
+    <p *ngIf="isProductPreorderPeriod(item)">
+      <a [href]="deepLink+ 'study_materials'" class="common-button">Pre-order the {{item.Name}}</a>
+    </p>
+    <p *ngIf="isNearStudyMaterialsEndOfLife && item.nextActiveItem.Lead_Gen_URL__c">
+        <a [href]="item.nextActiveItem.Lead_Gen_URL__c" target="_blank" class="common-button">
+            Notify me when the {{ item.nextActiveItem.Name }} 
+            <span *ngIf="!isPlural(item.nextActiveItem.Name)">is</span>
+            <span *ngIf="isPlural(item.nextActiveItem.Name)">are</span>
+            available
+        </a>
+    </p>
+  </div>
+</ng-template>
