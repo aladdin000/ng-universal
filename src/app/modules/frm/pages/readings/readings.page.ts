@@ -59,9 +59,8 @@ export class ReadingsPage extends MetaHelper implements OnInit {
             .pipe(
                 flatMap(examInfo => this.makeStudyTopicCall(examInfo)),
                 flatMap(response => this.resolvePromises(response)),
-                flatMap(response => this.filter(response)),
             )
-            .subscribe((examInfo: any) => {console.log(examInfo)}, (err) => console.log(err));
+            .subscribe((examInfo: any) => { this.filter(); }, (err) => console.log(err));
     }
 
     private makeStudyTopicCall(examInfoResponse) {
@@ -127,22 +126,17 @@ export class ReadingsPage extends MetaHelper implements OnInit {
         return examReadingsByDomain;
     }
 
-    public filter(items) {
-        console.log(this.readings);
-        this.readings = _(items)
-            .map((item, key) => {
+    public filter() {
+        const isRquired = this.readingType === 'required' ? true : false;
+        this.readings = this.readings.map((reading) => {
+            return _.filter(reading, (item, key) => {
                 if (typeof item === 'object') {
-                    const isRequired = _.get(item, 'readings[0].Required__c') || false;
-                    item.isRequired = isRequired;
+                    return item.readings[0].Required__c === isRquired ? true : false;
                 }
-                return item;
-            })
-            .filter((item) => {
-                // console.log(item,);
-                return _.get(item, 'isRequired') || false;
-            })
-            .value();
-        return of(filtered[0]);
+                return false;
+            });
+        });
+        console.log(this.readings);
     }
 
     public getExamPart(index) {

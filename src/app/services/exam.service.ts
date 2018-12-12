@@ -67,7 +67,7 @@ export class ExamService {
               examObj.examRegNextMonth = null;
             }
           }
-          console.log(examObj);
+
           /**
            * Exam Windows
            * Use May from Nov Closed - May Open
