@@ -1,0 +1,42 @@
+<div class="wrapper">
+        <app-line-title 
+          title="Required readings"
+          [type]="lineTitleTypes.frm"
+          gemColor="light-blue"
+          sizeType="s"
+          ></app-line-title>
+
+    <div class="section-main">
+        <ng-container *ngFor="let examPart of readings; let index = index">
+            <div class="row" *ngIf="!!examPart.length">
+                <div class="col-sm-5">
+                    <h2 class="common-title">
+                        {{activeMaterialsExamYear}} {{exam}} Part {{ getExamPart(index) }} Online Readings
+                    </h2>
+                </div>
+                <div class="col-sm-7">
+                    <div *ngFor="let domain of examPart | orderBy:'ID__c'">
+                        <ng-container *ngIf="domain?.readings">
+                            <div *ngIf="domain.ID__c > 0" class="reading-wrapper">
+                                <h3 class="path-box-title">{{ domain.domainName }}</h3>
+                                <div class="reading" *ngFor="let reading of domain.readings | orderBy:'readingName'" >
+                                    <p *ngIf="!reading?.Study_Guide_Readings_Group__r?.Optional_Readings__c">
+                                        <a [href]="reading.URL__c" class="common-link" target="_blank">{{ reading.Description__c }}</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </ng-container>                    
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="footer">
+        <div class="footer-angle"></div>
+        <app-gem
+            class="footer-gem"
+            type="gem-footer"
+            colorType="light-blue"
+        ></app-gem>
+    </div>
+</div>

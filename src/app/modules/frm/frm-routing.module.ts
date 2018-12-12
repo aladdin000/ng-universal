@@ -11,6 +11,7 @@ import {
   OurCertifiedFrmsPage,
   QuarterPage,
   StudyMaterialsPage,
+  ReadingsPage,
 } from './pages';
 
 const routes: Routes = [
@@ -47,7 +48,12 @@ const routes: Routes = [
         path: 'study-materials',
         component: StudyMaterialsPage,
         data: { meta: FRM_META.studyMaterials },
-      }
+      },
+      {
+        path: 'readings/:id',
+        component: ReadingsPage,
+        data: { meta: FRM_META.readings },
+      },
     ],
   }
 ];
