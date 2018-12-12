@@ -14,12 +14,28 @@ import {
   OurCertifiedFrmsPage,
   QuarterPage,
   StudyMaterialsPage,
+  ReadingsPage,
 } from './pages';
 
 import {
   HeroBoxOverviewComponent,
   HeroBoxOverviewModal,
 } from './components';
+
+const pages: any[] = [
+  FeesPaymentsPage,
+  FrmPage,
+  OverviewPage,
+  ProgramAndExamsPage,
+  OurCertifiedFrmsPage,
+  QuarterPage,
+  StudyMaterialsPage,
+  ReadingsPage,
+];
+
+const components: any[] = [
+  HeroBoxOverviewComponent,
+];
 
 @NgModule({
   imports: [
@@ -30,14 +46,8 @@ import {
     SharedModule,
   ],
   declarations: [
-    FeesPaymentsPage,
-    FrmPage,
-    OverviewPage,
-    ProgramAndExamsPage,
-    OurCertifiedFrmsPage,
-    QuarterPage,
-    StudyMaterialsPage,
-    HeroBoxOverviewComponent,
+    ...pages,
+    ...components,
     HeroBoxOverviewModal,
   ],
   entryComponents: [

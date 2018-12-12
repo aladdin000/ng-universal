@@ -5,3 +5,4 @@ export * from './program-and-exams/program-and-exams.page';
 export * from './our-certified-frms/our-certified-frms.page';
 export * from './our-certified-frms/pages/quarter/quarter.page';
 export * from './study-materials/study-materials.page';
+export * from './readings/readings.page';

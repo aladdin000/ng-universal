@@ -1,0 +1,42 @@
+<div class="wrapper">
+        <app-line-title 
+          title="Required readings"
+          [type]="lineTitleTypes.frm"
+          gemColor="light-blue"
+          sizeType="s"
+          ></app-line-title>
+
+    <div class="section-main">
+        <div class="row" *ngFor="let examPart of readings; let index = index">
+            <div class="col-sm-5">
+                <h2 class="common-title">
+                    {{activeMaterialsExamYear}} {{exam}} Part {{ getExamPart(index) }} Online Readings
+                </h2>
+            </div>
+            <div class="col-sm-7">
+                <div *ngFor="let domain of examPart | orderBy:'ID__c'" class="reading-wrapper">
+                    <div *ngIf="domain.ID__c > 0">
+                        <h3 class="path-box-title">{{ domain.domainName }}</h3>
+                        <div *ngIf="!domain.isRequired">
+                            description
+                        </div>
+                        <ng-container *ngIf="readingType === 'readingType'">
+                            <div class="reading" *ngFor="let reading of domain.readings | orderBy:'readingName'" >
+                                <p *ngIf="!reading?.Study_Guide_Readings_Group__r?.Optional_Readings__c">
+                                    <a [href]="reading.URL__c" target="_blank">{{ reading.Description__c }}</a>
+                                </p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="readingType === 'optioanl'">
+                            <div class="reading" *ngFor="let reading of domain.readings | orderBy:'readingName'" >
+                                <p *ngIf="!reading?.Study_Guide_Readings_Group__r?.Optional_Readings__c">
+                                    <a [href]="reading.URL__c" target="_blank">{{ reading.Description__c }}</a>
+                                </p>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
