@@ -12,6 +12,7 @@ import {
   QuarterPage,
   StudyMaterialsPage,
   ReadingsPage,
+  ExamPreparationProvidersPage,
 } from './pages';
 
 const routes: Routes = [
@@ -53,6 +54,16 @@ const routes: Routes = [
         path: 'readings/:id',
         component: ReadingsPage,
         data: { meta: FRM_META.readings },
+      },
+      {
+        path: 'exam-preparation-providers',
+        component: ExamPreparationProvidersPage,
+        data: { meta: FRM_META.examPreparationProviders },
+      },
+      {
+        path: 'exam-preparation-providers/:id',
+        component: ExamPreparationProvidersPage,
+        data: { meta: FRM_META.examPreparationProviders },
       },
     ],
   }

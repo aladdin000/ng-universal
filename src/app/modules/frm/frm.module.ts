@@ -15,6 +15,7 @@ import {
   QuarterPage,
   StudyMaterialsPage,
   ReadingsPage,
+  ExamPreparationProvidersPage,
 } from './pages';
 
 import {
@@ -31,6 +32,7 @@ const pages: any[] = [
   QuarterPage,
   StudyMaterialsPage,
   ReadingsPage,
+  ExamPreparationProvidersPage,
 ];
 
 const components: any[] = [
