@@ -23,6 +23,7 @@ export class ExamPreparationProvidersPage extends MetaHelper implements OnInit {
   public lineTitleTypes = LINE_TITLE_TYPES;
   public epps: EPP[];
   public param;
+  public activeEPP: EPP;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,16 +36,30 @@ export class ExamPreparationProvidersPage extends MetaHelper implements OnInit {
 
   ngOnInit() {
     this.param = this.route.snapshot.params['id'];
-    console.log(this.param);
+
     this.metaData = this.route.snapshot.data.meta;
     this.setMetaData();
 
     this.eppService.get()
-        .subscribe((epps: EPP[]) => this.epps = epps.sort((a, b) => {
-            if (a.name.toLowerCase() < b.name.toLowerCase()) { return -1; }
-            if (a.name.toLowerCase() > b.name.toLowerCase()) { return 1; }
-            return 0;
-        }));
+        .subscribe(
+          (epps: EPP[]) => {
+            this.epps = epps
+            .sort((a, b) => {
+                if (a.name.toLowerCase() < b.name.toLowerCase()) { return -1; }
+                if (a.name.toLowerCase() > b.name.toLowerCase()) { return 1; }
+                return 0;
+            })
+            .map((item: any) => {
+              item.link = this.convertNameToLink(item.name);
+              return item;
+            });
+
+            if (this.param) {
+              this.activeEPP = this.epps.find((item: any) => item.link === this.param);
+              console.log(this.activeEPP);
+            }
+          }
+        );
   }
 
   convertNameToLink(name) {
@@ -59,5 +74,9 @@ export class ExamPreparationProvidersPage extends MetaHelper implements OnInit {
     }
 
     return name;
+  }
+
+  parseLogo(src) {
+    return src.includes('http') ? this.activeEPP.logo : `../../../../../assets/images/${this.activeEPP.logo}`;
   }
 }

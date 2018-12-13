@@ -39,7 +39,6 @@
   
     &-link {
       @include common-link;
-      font-weight: bold;
       display: inline-block;
 
       &-secondary {
@@ -74,6 +73,29 @@
       transition: background-color .3s,border-color .3s;
       outline: none;
       font-weight: bold !important;
+
+      &-blue {
+        background-color: #081a31;
+        border: 1px solid #00a2dd;
+        display: inline-block;
+        color: white !important;
+        -webkit-opacity: .8;
+        -moz-opacity: .8;
+        opacity: .8;
+        margin: 1.5em auto;
+        -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=75)';
+        filter: alpha(opacity=75);
+        font-size: 18px;
+        line-height: 1.33;
+        border-radius: 6px;
+        padding: 1em 0;
+        width: 100%;
+        text-align: center;
+
+        &:link {
+          text-decoration: navajowhite
+        }
+      }
     }
 }
 
@@ -89,6 +111,33 @@
           a {
               display: block;
           }
+      }
+
+      &.epp {
+        h2 {
+          text-align: center;
+          padding-bottom: 6%;
+        }
+        padding-top: 4%;
+
+        img {
+          display: block;
+          height: auto;
+          max-width: 100%;
+        }
+
+        .pull-right {
+          background-color: white;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          min-height: 0 !important;
+          padding: 1em 1.5em;
+          line-height: 2em;
+          background-image: url('../../../../../assets/images/light_noise_diagonal.png');
+          background-position: center center!important;
+          background-repeat: repeat;
+          width: 100%;
+        }
       }
   
       > .row {
@@ -153,3 +202,17 @@ ul {
     margin-top: 0;
   }
   
+@media(max-width: 767px) {
+  .order {
+    display: flex; flex-direction: column;
+  }
+  .order1 {
+    order: 1
+  }
+  .order2 {
+    order: 2;
+  }
+  .pull-right {
+    margin-bottom: 2rem;
+  }
+}
