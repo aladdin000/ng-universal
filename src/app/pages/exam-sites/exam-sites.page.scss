@@ -1,0 +1,200 @@
+@import "../../../style-variables";
+
+.common {
+    &-title {
+      @include common-title;
+  
+      @media (max-width: 767px) {
+        margin-bottom: 2rem;
+      }
+    }
+  
+    &-text {
+      @include common-text;
+      margin: 0;
+  
+      &-secondary {
+        @include common-text;
+        margin: 0;
+        margin-top: 2rem;
+      }
+    }
+  
+    &-link {
+      @include common-link;
+      font-weight: bold;
+      display: inline-block;
+
+      &-secondary {
+        margin-top: 2rem;
+      }
+    }
+  
+    &-right {
+      @media (min-width: $s-w-md) {
+        padding-left: 30px;
+        padding-top: 7px;
+      }
+    }
+
+    &-button {
+      margin-top: 2rem;
+      display: block;
+      cursor: pointer;
+      width: 300px;
+      max-width: 100%;
+      border-radius: 2px;
+      padding: 12px;
+      background: #00a2dd;
+      border: 2px solid #00a2dd;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 1px;
+      transition: background-color .3s,border-color .3s;
+      outline: none;
+      font-weight: bold !important;
+    }
+}
+
+.section {
+    &-main {
+      @include common-section;
+      max-width: 1200px;
+      margin-top: 0;
+
+      .quarter-links {
+        margin-top: 2rem;
+          a {
+              display: block;
+          }
+      }
+  
+      > .row {
+        &:not(:first-child) {
+          margin-top: 4rem;
+  
+          @media (min-width: $s-w-md) {
+            margin-top: 7rem;
+          }
+        }
+      }
+  
+      br {
+        @media (max-width: 767px) {
+          display: none;
+        }
+      }
+      ol {
+        margin-top: 2rem;
+        padding-left: 20px;
+      }
+
+      @media(max-width: 767px) {
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+}
+
+.scroller {
+    margin-top: 2rem;
+    .letters {
+        .letter {
+            font-size: 24px;
+            margin-top: 2rem;
+            font-weight: normal;
+        }
+        hr {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 0;
+            border-top: 1px solid #eee;
+        }
+        .names {
+            li {
+                font-size: 1em;
+                list-style-type: none;
+                margin-top: .8rem;
+            }
+        }
+    }
+}
+
+.letters-nav-wrapper {
+    position: relative;
+
+    @media(max-width: 767px) {
+        display: none;
+    }
+}
+.letters-nav {
+    background-color: #fff;
+    color: #9da7ae;
+    border: 1px solid #9da7ae;
+    position: relative;
+    cursor: pointer;
+    font-weight: 600;
+    max-width: 426px;
+    margin-top: 1px;
+
+    li {
+        border-top: 1px solid #9da7ae;
+        margin: 0;
+        font-size: 1em;
+        list-style-type: none;
+        transition: 0;
+
+        &:first-child {
+            border-top: 0 solid #9da7ae;
+        }
+
+        a {
+            padding: .6rem 1.25rem;
+            display: block;
+            font-size: .9rem;
+            color: #9da7ae;
+            transition: 0;
+        }
+        &.active, &:hover {
+            a {
+                color: #081a31;
+                text-decoration: none;
+            }
+            background-color: rgba(203,213,214,0.5)
+        }
+    }
+}
+.affex-nav {
+    position: fixed;
+    top: 100px;
+    width: 100%;
+    z-index: 15;
+    max-width: 426px;
+
+    @media(max-width: 991px) {
+        max-width: 35%;
+    }
+}
+
+.gem-table {
+    position: absolute;
+    left: 10px;
+    top: -8.5px;
+    z-index: 16;
+}
+.examRegions {
+    h4 {
+        margin: 10px 0;
+    }
+}
+
+
+@include common-footer;
+.footer {
+    margin-top: 200px;
+}

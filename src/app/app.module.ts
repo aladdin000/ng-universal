@@ -24,23 +24,30 @@ import {
   HomePage,
   GarpRiskInstitutePage,
   TestimonialDetailPage,
+  ExamSitesPage,
 } from './pages';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+const pages: any[] = [
+  AppPage,
+  CpdPage,
+  GarpRiskInstitutePage,
+  HomePage,
+  TestimonialDetailPage,
+  ExamSitesPage,
+];
+
+const components: any = [
+  FooterComponent,
+  HeaderComponent,
+];
+
 @NgModule({
   declarations: [
-    // components
-    AppPage,
-    FooterComponent,
-    HeaderComponent,
-    // modals
     HeaderNavigationModalComponent,
-    // pages
-    CpdPage,
-    GarpRiskInstitutePage,
-    HomePage,
-    TestimonialDetailPage,
+    ...components,
+    ...pages,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'app' }),

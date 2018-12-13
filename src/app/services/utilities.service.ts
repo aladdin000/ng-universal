@@ -74,4 +74,26 @@ export class UtilitiesService {
     public isAfterDate(dateString) {
         return this.timeUntilDateTime(dateString) <= 0;
     }
+
+    public formatDate(inDate, format) {
+
+        if (this.defined(inDate) && this.defined(format)) {
+            if (this.defined(inDate, 'format')) {
+                return inDate.format(format);
+            } else {
+                return this.formatDateEastern(inDate, format);
+            }
+        } else {
+            return '';
+        }
+    }
+
+    public formatDateEastern(epoch, format) {
+        if (epoch !== null && typeof epoch !== 'undefined') {
+            const mdate = moment.tz(epoch, 'America/New_York');
+            return mdate.format(format);
+        } else {
+            return '';
+        }
+    }
 }

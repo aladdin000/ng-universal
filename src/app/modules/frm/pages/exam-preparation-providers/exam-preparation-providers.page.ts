@@ -56,7 +56,6 @@ export class ExamPreparationProvidersPage extends MetaHelper implements OnInit {
 
             if (this.param) {
               this.activeEPP = this.epps.find((item: any) => item.link === this.param);
-              console.log(this.activeEPP);
             }
           }
         );

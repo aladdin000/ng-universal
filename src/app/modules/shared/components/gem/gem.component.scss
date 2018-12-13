@@ -145,6 +145,22 @@
         fill: $c-light-grey;
       }
     }
+    &-4 {
+       polygon:nth-child(1) {
+        fill: #9da7ae;
+      }
+
+      polygon:nth-child(2) {
+        fill: #cbd5d6;
+      }
+
+      polygon:nth-child(3) {
+        fill: #B1B7BD;
+      }
+      polygon:nth-child(4), polygon:nth-child(5), polygon:nth-child(6) {
+        fill: #081a31;
+      }
+    }
   }
 
   &.grey-dark-blue {

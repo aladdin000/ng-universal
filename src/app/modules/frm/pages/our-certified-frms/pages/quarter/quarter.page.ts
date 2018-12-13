@@ -65,7 +65,6 @@ export class QuarterPage extends MetaHelper implements OnInit {
     title: Title,
     meta: Meta,
     private candidateService: CandidateService,
-    private pageScrollService: PageScrollService,
     @Inject(DOCUMENT) private document: any,
   ) {
     super(title, meta);
