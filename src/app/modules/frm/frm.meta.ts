@@ -30,6 +30,11 @@ const readings = {
   description: 'Global Association of Risk Professionals | The Only Globally Recognized Membership Association for Risk Managers',
 };
 
+const examPreparationProviders = {
+  title: 'FRM Exam Preparation Providers | GARP',
+  description: 'Global Association of Risk Professionals | The Only Globally Recognized Membership Association for Risk Managers',
+};
+
 export const FRM_META: IMetaObject = Object.freeze({
   overview: {
     title: overview.title,
@@ -90,5 +95,14 @@ export const FRM_META: IMetaObject = Object.freeze({
     twitter: {
       ...readings,
     },
-  }
+  },
+  examPreparationProviders: {
+    ...examPreparationProviders,
+    og: {
+      ...examPreparationProviders,
+    },
+    twitter: {
+      ...examPreparationProviders,
+    },
+  },
 });

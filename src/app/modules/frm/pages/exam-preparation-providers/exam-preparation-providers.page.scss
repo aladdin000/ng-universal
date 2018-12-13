@@ -1,0 +1,218 @@
+#epp-hdr {
+    background-image: url('../../../../../assets/images/frm/exam-preparation-providers/epp.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 5% 0;
+
+    .wrapper {
+        h1 {
+            color: #fff;
+            text-align: center;
+            font-size: 3.25em;
+            margin: 25px 0;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+    }
+}
+@import "../../../../../style-variables";
+
+.common {
+    &-title {
+      @include common-title;
+  
+      @media (max-width: 767px) {
+        margin-bottom: 2rem;
+      }
+    }
+  
+    &-text {
+      @include common-text;
+      margin: 0;
+  
+      &-secondary {
+        @include common-text;
+        margin: 0;
+        margin-top: 2rem;
+      }
+    }
+  
+    &-link {
+      @include common-link;
+      display: inline-block;
+
+      &-secondary {
+        margin-top: 2rem;
+      }
+    }
+  
+    &-right {
+      @media (min-width: $s-w-md) {
+        padding-left: 30px;
+        padding-top: 7px;
+      }
+    }
+
+    &-button {
+      margin-top: 2rem;
+      display: block;
+      cursor: pointer;
+      width: 300px;
+      max-width: 100%;
+      border-radius: 2px;
+      padding: 12px;
+      background: #00a2dd;
+      border: 2px solid #00a2dd;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 1px;
+      transition: background-color .3s,border-color .3s;
+      outline: none;
+      font-weight: bold !important;
+
+      &-blue {
+        background-color: #081a31;
+        border: 1px solid #00a2dd;
+        display: inline-block;
+        color: white !important;
+        -webkit-opacity: .8;
+        -moz-opacity: .8;
+        opacity: .8;
+        margin: 1.5em auto;
+        -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=75)';
+        filter: alpha(opacity=75);
+        font-size: 18px;
+        line-height: 1.33;
+        border-radius: 6px;
+        padding: 1em 0;
+        width: 100%;
+        text-align: center;
+
+        &:link {
+          text-decoration: navajowhite
+        }
+      }
+    }
+}
+
+.section {
+    &-main {
+      @include common-section;
+      max-width: 1200px;
+      margin-top: 0;
+      margin-bottom: 2rem;
+
+      .quarter-links {
+        margin-top: 2rem;
+          a {
+              display: block;
+          }
+      }
+
+      &.epp {
+        h2 {
+          text-align: center;
+          padding-bottom: 6%;
+        }
+        padding-top: 4%;
+
+        img {
+          display: block;
+          height: auto;
+          max-width: 100%;
+        }
+
+        .pull-right {
+          background-color: white;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          min-height: 0 !important;
+          padding: 1em 1.5em;
+          line-height: 2em;
+          background-image: url('../../../../../assets/images/light_noise_diagonal.png');
+          background-position: center center!important;
+          background-repeat: repeat;
+          width: 100%;
+        }
+      }
+  
+      > .row {
+        &:not(:first-child) {
+          margin-top: 4rem;
+  
+          @media (min-width: $s-w-md) {
+            margin-top: 7rem;
+          }
+          &.legal {
+                font-size: 1rem;
+                line-height: 1.5;
+                color: #9da7ae;
+                font-style: italic;
+                margin-top: 2rem !important;
+                margin-bottom: 2rem;
+            }
+        }
+      }
+  
+      br {
+        @media (max-width: 767px) {
+          display: none;
+        }
+      }
+      ol {
+        margin-top: 2rem;
+        padding-left: 20px;
+      }
+
+      @media(max-width: 767px) {
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+}
+ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+
+.margin-top-0 {
+    margin-top: 0;
+  }
+  .margin-top-1rem {
+    margin-top: 1rem;
+  }
+  .margin-top-2rem {
+    margin-top: 2rem;
+  }
+  .margin-top-5rem {
+    margin-top: 5rem;
+  }
+  .maxw180 {
+    max-width: 180px;;
+  }
+  
+  .section-main[_ngcontent-c3] > .row[_ngcontent-c3]:not(:first-child) {
+    margin-top: 0;
+  }
+  
+@media(max-width: 767px) {
+  .order {
+    display: flex; flex-direction: column;
+  }
+  .order1 {
+    order: 1
+  }
+  .order2 {
+    order: 2;
+  }
+  .pull-right {
+    margin-bottom: 2rem;
+  }
+}

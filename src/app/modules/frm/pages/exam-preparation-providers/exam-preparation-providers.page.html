@@ -1,0 +1,67 @@
+<div id="epp-hdr">
+    <div class="wrapper container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>FRM Exam Preparation Providers</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="section-main" *ngIf="!param">
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="margin-top-2rem">Below is a list of the Exam Preparation Providers that GARP has compiled as a service to candidates to aide them in their study plan. While the FRM is a self-study program, some candidates may prefer more hands-on guidance in their studying. Exam Preparation Providers are third-party services that assist with exam preparation.</p>
+                <ul>
+                    <li *ngFor="let epp of epps"><a [routerLink]="epp.link" class="common-link">{{ epp.name }}</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row margin-top-2rem legal">
+            <div class="col-sm-12">
+                <div class="text-left">
+                    <p>
+                        As a reminder, GARP does not endorse, promote, review, or warrant the accuracy or the products or services offered by Exam Preparation Providers of FRM-related information. Nor does it endorse pass rates claimed by any Exam Preparation Provider. Further, GARP is not responsible for any fees or costs paid by the user to an FRM Exam Preparation Provider. GARP provides FRM candidates with this information as a service to them.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row margin-top-2rem">
+            <div class="col-lg-12">
+                <div class="text-left">
+                    <h3>Exam Preparation Provider Application</h3>
+                    <p>If you are seeking to become an approved Exam Preparation Provider for the FRM Exam, please download the <a class="common-link" href="https://go.garp.org/garp-exam-prep-agreement-2015" target="_blank" title="Download the form to become an exam Preparation Provider">application</a> and return it to <a class="common-link" href="mailto:support@garp.com">support@garp.com.</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-main epp" *ngIf="param && activeEPP">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>{{ activeEPP?.name }}</h2>
+                <div class="row order">
+                    <div class="col-sm-8 order2">
+                        <div [innerHtml]="activeEPP.overview"></div>
+                    </div>
+                    <div class="col-sm-4 order1">
+                        <div class="pull-right">
+                            <h3>Program Details</h3>
+                            <img class="margin-top-2rem" [src]="parseLogo(activeEPP.logo)"/>
+                            <p class="margin-top-2rem">
+                                <strong>Location:</strong> {{ activeEPP.location }}
+                            </p>
+                            <p>
+                                <strong>Contact Information:</strong>
+                            </p>
+                            <p>
+                                Phone: {{ activeEPP.contactphone }}
+                            </p>
+                            <a class="common-button-blue" [href]="activeEPP.website" target="_blank">Visit the Program Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
