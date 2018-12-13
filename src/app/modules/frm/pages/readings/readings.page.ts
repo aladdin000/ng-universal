@@ -136,7 +136,6 @@ export class ReadingsPage extends MetaHelper implements OnInit {
                 return false;
             });
         });
-        console.log(this.readings);
     }
 
     public getExamPart(index) {

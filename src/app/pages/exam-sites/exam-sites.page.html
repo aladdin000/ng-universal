@@ -1,0 +1,73 @@
+<div class="wrapper">
+    <app-line-title [title]="formatDate(activeMaterialsExamInfo?.Exam_Date__c, 'MMMM YYYY') + ' exam sites'" [type]="lineTitleTypes.corp"
+        gemColor="dark-and-double-grey-1" sizeType="s">
+    </app-line-title>
+
+    <div class="section-main">
+        <div class="row scroller">
+            <div class="col-sm-12">
+                <h3 class="" *ngIf="examInfo?.examMaterialsMonth == 'may' && examInfo?.examRegOpenedMonth == 'nov' && (activeMaterialsExamInfo?.status === 'closed' || activeMaterialsExamInfo?.status === 'examday')">
+                    {{ formatDate(activeExamInfo?.Exam_Date__c, 'MMMM') }} exam sites coming soon
+                </h3>
+                <h3 class="g-c-h3 g-u-uppercase humble-hero__under-hero" *ngIf="(examInfo?.examMaterialsMonth != 'may' || examInfo?.examRegOpenedMonth != 'nov') && (activeMaterialsExamInfo?.status === 'closed' || activeMaterialsExamInfo?.status === 'examday')">
+                    {{ formatDate(nextExamInfo?.Exam_Date__c, 'MMMM') }} exam sites coming soon
+                </h3>
+            </div>
+            <div class="col-sm-5">
+                <div class="letters-nav-wrapper" affexScroll [offset]="75">
+                    <app-gem class="gem-table" type="gem-table" colorType="dark-and-double-grey-4"></app-gem>
+                    <ul class="letters-nav">
+                        <li *ngFor="let item of examRegions; let i = index" [ngClass]="{'active' : i === activeLink}">
+                            <a pageScroll [href]="'#' + item" (pageScrollFinish)="changeActiveLink(i)">{{ item }}</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="col-sm-7">
+                <div *ngFor="let region of examRegions" class="examRegions">
+                    <div>
+                        <h4 [id]="region">
+                            <strong>{{ region }}</strong>
+                        </h4>
+                        <table class="table sites-table">
+                            <tr>
+                                <th colspan="2">Country/Region</th>
+                                <th colspan="4">City, state</th>
+                                <th colspan="4">Exam site address</th>
+                            </tr>
+                            <tr *ngFor="let examVenue of examVenues[region] |  orderBy: 'Country__c'">
+                                <ng-container *ngIf="examVenue.Active__c">
+                                    <td colspan="2" style="width: 25%">{{ examVenue.Country__c }}</td>
+                                    <td colspan="4" style="width: 40%">{{ examVenue.City__c }}
+                                        <span *ngIf="examVenue.State__c">, {{ examVenue.State__c }}</span>
+                                    </td>
+                                    <td colspan="4" style="width: 35%">
+                                        <div *ngIf="examVenue.Address1__c">
+                                            <span *ngIf='examVenue.Institution_Name__c'> {{ examVenue.Institution_Name__c }}
+                                                <br> </span>
+                                            <span *ngIf='examVenue.Building_Name__c'> {{ examVenue.Building_Name__c }}
+                                                <br> </span>
+                                            <span *ngIf='examVenue.Address1__c'> {{ examVenue.Address1__c }}
+                                                <br> </span>
+                                            <span *ngIf='examVenue.Address2__c'> {{ examVenue.Address2__c }}
+                                                <br> </span> {{ examVenue.State__c }} {{ Zipcode__c }}
+                                        </div>
+                                        <div *ngIf="!examVenue.Address1__c">
+                                            <em>Address coming soon...</em>
+                                        </div>
+                                    </td>
+                                </ng-container>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-angle"></div>
+        <app-gem class="footer-gem" type="gem-footer" colorType="light-blue"></app-gem>
+    </div>
+</div>

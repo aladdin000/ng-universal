@@ -16,6 +16,11 @@ const testimonial = {
   description: common.description,
 };
 
+const examSites = {
+  title: 'Exam Venues | GARP',
+  desctiption: 'Global Association of Risk Professionals | The Only Globally Recognized Membership Association for Risk Managers',
+};
+
 export const APP_META: IMetaObject = Object.freeze({
   home: {
     title: home.title,
@@ -63,6 +68,15 @@ export const APP_META: IMetaObject = Object.freeze({
     twitter: {
       title: testimonial.title,
       description: testimonial.description,
+    },
+  },
+  examSites: {
+    ...examSites,
+    og: {
+      ...examSites,
+    },
+    twitter: {
+      ...examSites,
     },
   },
 });

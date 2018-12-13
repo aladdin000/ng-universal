@@ -8,6 +8,7 @@ import {
   HomePage,
   GarpRiskInstitutePage,
   TestimonialDetailPage,
+  ExamSitesPage,
 } from './pages';
 
 const appRoutes: Routes = [
@@ -20,6 +21,11 @@ const appRoutes: Routes = [
     path: 'cpd',
     component: CpdPage,
     data: { meta: APP_META.cpd },
+  },
+  {
+    path: 'exam-sites',
+    component: ExamSitesPage,
+    data: { meta: APP_META.examSites },
   },
   {
     path: 'garp-risk-institute',
